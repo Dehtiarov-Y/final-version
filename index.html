@@ -5,11 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="Website icon" type="png"  href="img/favicon-black-white.png">
   <title>Portfolio Dehtiarov UX/UI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.6.6/css/flag-icons.min.css">
 </head>
 <body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  
+  <div class="spotlight"></div>
+
+
   <div class="mobile-header">
     <div class="mobile-logo">
       <img src="img/favicon-black-white.png" alt="Logo">
@@ -39,6 +52,14 @@
         <h3>FORMATION</h3>
         <p>Mon parcours éducatif</p>
       </div>
+      <div class="menu-section" data-target="#conteneur-services">
+        <h3>SERVICES</h3>
+        <p>Ce que je propose</p>
+      </div>
+      <div class="menu-section" data-target="#conteneur-process">
+        <h3>PROCESSUS</h3>
+        <p>Comment je travaille</p>
+      </div>
       <div class="menu-section" data-target="#conteneur-portfolio">
         <h3>PORTFOLIO</h3>
         <p>Voir mes projets</p>
@@ -46,6 +67,10 @@
       <div class="menu-section" data-target="#conteneur-contact">
         <h3>CONTACT</h3>
         <p>Contactez-moi</p>
+      </div>
+      <div class="menu-section" data-target="#conteneur-footer">
+        <h3>RÉSEAUX</h3>
+        <p>Mes réseaux sociaux</p>
       </div>
     <div class="menu-section mobile-language-section">
       <h3>LANGAGE</h3>
@@ -63,7 +88,6 @@
 
   <div id="conteneur-id">
     
-    <!-- NAV MENU -->
     <div id="conteneur-menu">
       <div class="menu">
         <ul>
@@ -71,12 +95,13 @@
           <li><a href="#conteneur-about">À PROPOS</a></li>
           <li><a href="#conteneur-skills">COMPÉTENCES</a></li>
           <li><a href="#conteneur-qualification">FORMATION</a></li>
+          <li><a href="#conteneur-services">SERVICES</a></li>
+          <li><a href="#conteneur-process">PROCESSUS</a></li>
           <li><a href="#conteneur-portfolio">PORTFOLIO</a></li>
           <li><a href="#conteneur-contact">CONTACT</a></li>
         </ul>
         
-            <!-- LANGUAGE SELECTOR -->
-      <div class="desktop-language-selector">
+            <div class="desktop-language-selector">
       <div class="language-selector">
         <button class="language-btn" id="language-toggle">
           <i class="fas fa-globe"></i>
@@ -91,7 +116,6 @@
      </div>
     </div>
 
-    <!-- MY NAME WITH BACKGROUND -->
     <div id="conteneur-home" class="fade-in">
       <div class="home">
         <h1>Yevhenii Dehtiarov</h1>
@@ -99,14 +123,15 @@
       </div>
     </div>
 
-    <!-- ABOUT -->
     <div id="conteneur-about" class="fade-in">
-      <div class="about">
+      <div class="about floating-card">
         <div class="profil-photo">
           <img src="img/logo-about.png" alt="Logo Yevhenii Dehtiarov" />
         </div>
         <div class="profil-text">
-          <h2>À propos</h2>
+          <div class="title">
+            <h2>À propos</h2>
+          </div>
           <p>
             Bonjour, je m'appelle Yevhenii Dehtiarov. Je suis étudiant en design UX/UI avec un vif intérêt pour la création d'expériences numériques centrées sur l'utilisateur. Je me concentre sur la combinaison de la fonctionnalité et de l'esthétique pour développer des interfaces propres, efficaces et accessibles. J'élargis continuellement mes compétences en design et en développement front-end, et je suis toujours ouvert à de nouvelles opportunités pour grandir et contribuer à des projets innovants.
           </p>
@@ -121,60 +146,65 @@
       </div>
     </div>
 
-    <!-- SKILLS -->
     <div id="conteneur-skills" class="fade-in">
-      <div class="skills">
+      <div class="skills floating-card">
         <div class="title">
           <h2>Compétences</h2>
            <p>
             J'ai récemment commencé mon parcours en programmation et en design UX/UI, et j'aborde chaque projet comme une opportunité de grandir et de repousser mes limites. Avec un engagement fort envers l'amélioration continue, j'élargis activement mes connaissances en développement front-end et en conception centrée sur l'utilisateur. Je suis concentré, motivé et prêt à relever de nouveaux défis pour offrir des expériences numériques percutantes.
           </p>
         </div>
-        <div class="bardiv">
-          <h3>HTML</h3>
-          <div class="progressbar">
-            <span class="html"></span>
-          </div>
-          <h3>CSS</h3>
-          <div class="progressbar">
-            <span class="css"></span>
-          </div>
-          <h3>JavaScript</h3>
-          <div class="progressbar">
-            <span class="javascript"></span>
-          </div>
-          <h3>PHP</h3>
-          <div class="progressbar">
-            <span class="php"></span>
-          </div>
-          <h3>Python</h3>
-          <div class="progressbar">
-            <span class="python"></span>
-          </div>
-          <h3>SQL</h3>
-          <div class="progressbar">
-            <span class="sql"></span>
-          </div>
-          <h3>LANGUAGE C</h3>
-          <div class="progressbar">
-            <span class="c"></span>
-          </div>
-          <h3>FIGMA</h3>
-          <div class="progressbar">
-            <span class="figma"></span>
-          </div>
-            <h3>3D MODELING(BLENDER)</h3>
+
+        <div class="skills-grid">
+          <div class="bardiv">
+            <h3>HTML</h3>
             <div class="progressbar">
-              <span class="blender"></span>
+              <span class="html"></span>
             </div>
+            <h3>CSS</h3>
+            <div class="progressbar">
+              <span class="css"></span>
+            </div>
+            <h3>JavaScript</h3>
+            <div class="progressbar">
+              <span class="javascript"></span>
+            </div>
+            <h3>PHP</h3>
+            <div class="progressbar">
+              <span class="php"></span>
+            </div>
+            <h3>Python</h3>
+            <div class="progressbar">
+              <span class="python"></span>
+            </div>
+          </div>
+          <div class="bardiv">
+            <h3>SQL</h3>
+            <div class="progressbar">
+              <span class="sql"></span>
+            </div>
+            <h3>LANGUAGE C</h3>
+            <div class="progressbar">
+              <span class="c"></span>
+            </div>
+            <h3>FIGMA</h3>
+            <div class="progressbar">
+              <span class="figma"></span>
+            </div>
+              <h3>3D MODELING(BLENDER)</h3>
+              <div class="progressbar">
+                <span class="blender"></span>
+              </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- QUALIFICATION -->
     <div id="conteneur-qualification" class="fade-in">
-      <div class="qualification">
-          <h2>Formation</h2>
+      <div class="qualification floating-card">
+          <div class="title">
+            <h2>Formation</h2>
+          </div>
           <div class="lastqualification">
             <h3>Cap-Digital</h3>
             <br>
@@ -189,11 +219,71 @@
          </div>
       </div>
     </div>
+
+    <div id="conteneur-services" class="fade-in">
+      <div class="services floating-card">
+        <div class="title">
+          <h2>Services</h2>
+          <p>Je me concentre sur la création d'expériences numériques significatives. Voici ce que je peux faire pour vous.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <i class="fas fa-pencil-ruler"></i>
+            <h3>UI Design</h3>
+            <p>Création d'interfaces utilisateur visuellement attrayantes, propres et intuitives.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-users"></i>
+            <h3>UX Design</h3>
+            <p>Recherche utilisateur, wireframing et prototypage pour garantir une expérience centrée sur l'utilisateur.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-code"></i>
+            <h3>Développement Front-End</h3>
+            <p>Transformation des maquettes en sites web réactifs et performants (HTML, CSS, JS).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="conteneur-process" class="fade-in">
+      <div class="process floating-card">
+        <div class="title">
+          <h2>Mon Processus</h2>
+          <p>Un bon design est le fruit d'un processus structuré. Voici comment j'aborde chaque projet.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="process-number">01</div>
+            <h3>Recherche</h3>
+            <p>Comprendre les objectifs du projet, analyser les concurrents et définir les besoins des utilisateurs.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">02</div>
+            <h3>Conception</h3>
+            <p>Créer des wireframes, des flux utilisateurs et des maquettes haute fidélité pour visualiser la solution.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">03</div>
+            <h3>Prototypage</h3>
+            <p>Développer des prototypes interactifs pour simuler l'expérience utilisateur finale.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">04</div>
+            <h3>Test & Itération</h3>
+            <p>Recueillir des retours, tester les prototypes avec les utilisateurs et affiner le design.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <div id="conteneur-portfolio" class="fade-in">
-      <div class="portfolio">
-        <h2>Portfolio</h2>
+      <div class="portfolio floating-card">
+        <div class="title">
+          <h2>Portfolio</h2>
+        </div>
         
-        <!-- Filter-buttons -->
         <div class="portfolio-filters">
           <button class="filter-btn active" data-filter="all">Tous</button>
           <button class="filter-btn" data-filter="ux">Site</button>
@@ -201,51 +291,81 @@
           <button class="filter-btn" data-filter="app">Logo</button>
         </div>
 
-        <!-- CARDS PORTFOLIO -->
-        <div class="portfolio-grid">
-          <div class="card" data-category="ux">
-            <div class="card-image" style="background-image: url('img/screenshot.png');"></div>
-            <div class="card-content">
+        <div class="portfolio-list">
+          <div class="portfolio-item" data-category="ux">
+            <div class="portfolio-description">
               <h3>Site Portfolio</h3>
               <p>Mon portfolio personnel présentant des sections telles que À propos, Compétences, Projets et Contact. L'accent est mis sur la mise en page réactive, la navigation fluide et un style cohérent.</p>
               <span>Outils: HTML, CSS, JavaScript</span>
             </div>
+            <div class="portfolio-image">
+              <img src="img/screenshot.png" alt="Aperçu du site Portfolio">
+            </div>
           </div>
-          <div class="card" data-category="web">
-            <div class="card-image" style="background-image: url('img/presentation_2.png');"></div>
-            <div class="card-content">
+
+          <div class="portfolio-item layout-image-left" data-category="web">
+            <div class="portfolio-description">
               <h3>Présentation des designers UX/UI</h3>
               <p>Introduction à CSS Grid et son utilisation dans la conception web réactive.</p>
               <span>Outils: Powerpoint, Canva, etc</span>
             </div>
+            <div class="portfolio-image">
+              <img src="img/presentation_2.png" alt="Aperçu de la présentation">
+            </div>
           </div>
-          <div class="card" data-category="app">
-            <div class="card-image" style="background-image: url('img/favicon-black-white.png');"></div>
-            <div class="card-content">
+
+          <div class="portfolio-item" data-category="app">
+            <div class="portfolio-description">
               <h3>Mon Logo</h3>
               <p>Création d'un logo personnalisé pour une application mobile de suivi des habitudes, en mettant l'accent sur le minimalisme et l'identité de marque.</p>
               <span>Outils: Canva</span>
             </div>
+            <div class="portfolio-image">
+              <img src="img/favicon-black-white.png" alt="Aperçu du logo">
+            </div>
           </div>
-          <div class="card" data-category="web">
-            <div class="card-image" style="background-image: url('img/presentation.png');"></div>
-            <div class="card-content">
+
+          <div class="portfolio-item layout-image-left" data-category="web">
+            <div class="portfolio-description">
               <h3>Présentation de la technologie CSS Grid Layout</h3>
               <p>Introduction à CSS Grid et son utilisation dans la conception web réactive.</p>
               <span>Outils: Powerpoint, Canva, etc</span>
+            </div>
+            <div class="portfolio-image">
+              <img src="img/presentation.png" alt="Aperçu de la présentation CSS Grid">
             </div>
           </div>
         </div>
       </div>
     </div>
-    <footer id="conteneur-contact" class="fade-in">
-      <h2 class="titre-section">CONTACT</h2>
-      <!-- ANOTHER PAGE -->
+
+    <div id="conteneur-contact" class="fade-in">
+      <div class="contact-container floating-card">
+        <div class="title">
+          <h2>Prendre Contact</h2>
+          <p>Une question ou un projet ? N'hésitez pas à m'écrire.</p>
+        </div>
+        <form classaction="https://api.web3forms.com/submit" method="POST" class="contact-form">
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+          
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Votre Nom" required>
+            <input type="email" name="email" placeholder="Votre Email" required>
+          </div>
+          <textarea name="message" placeholder="Votre Message" rows="6" required></textarea>
+          <button type="submit" class="button">
+            <div class="text">Envoyer le Message</div>
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+    <footer id="conteneur-footer" class="fade-in">
       <div class="footer-left">
         <a href="ressources_fr.html" class="footer-button">RESSOURCES UTILISÉES</a> 
       </div>
     
-      <!-- ICONS -->
       <div class="footer-icons">
         <a href="https://instagram.com/deggtyaryov" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://github.com/Dehtiarov-Y" target="_blank"><i class="fab fa-github"></i></a>
@@ -263,18 +383,49 @@
       </div>
     </footer>
 
-    <!-- SCROLL BUTTON -->
     <a href="#" class="scroll-top" title="Retour en haut de la page"></a>
   </div>
 
-    <!-- JavaScript -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // Script pour changer la barre de navigation lors du défilement
+
+        // === КОД КУРСОРА & ПРОЖЕКТОРА ===
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        const spotlight = document.querySelector('.spotlight');
+
+        window.addEventListener('mousemove', (e) => {
+          const { clientX: posX, clientY: posY } = e;
+          
+          cursorDot.style.top = `${posY}px`;
+          cursorDot.style.left = `${posX}px`;
+          cursorDot.style.opacity = '1';
+
+          cursorOutline.style.top = `${posY}px`;
+          cursorOutline.style.left = `${posX}px`;
+          cursorOutline.style.opacity = '1';
+
+          spotlight.style.top = `${posY}px`;
+          spotlight.style.left = `${posX}px`;
+        });
+
+        // 'cursor-hover' class
+        document.querySelectorAll(
+          'a, button, .menu-section, .filter-btn, .scroll-top, .portfolio-item'
+        ).forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            document.body.classList.add('cursor-hover');
+          });
+          el.addEventListener('mouseleave', () => {
+            document.body.classList.remove('cursor-hover');
+          });
+        });
+        
+        // === КОД НАВИГАЦИИ & HERO FADE ===
         window.addEventListener('scroll', function() {
           const nav = document.getElementById('conteneur-menu');
           const mobileNav = document.querySelector('.mobile-header');
-          const scrolled = window.scrollY > 50;
+          const scrolled = window.scrollY > 10;
           
           if (nav) {
             if (scrolled) {
@@ -291,9 +442,19 @@
               mobileNav.classList.remove('scrolled');
             }
           }
+          
+          const homeContent = document.querySelector('.home');
+          if (homeContent) {
+            let scrollPercent = window.scrollY / (window.innerHeight * 0.5);
+            let opacity = 1 - Math.min(scrollPercent, 1);
+            let transform = Math.min(scrollPercent * 100, 100); 
+
+            homeContent.style.opacity = opacity;
+            homeContent.style.transform = `translate3d(0, -${transform}px, 0)`;
+          }
         });
         
-        // Affichage du bouton de retour en haut
+        // Кнопка "Наверх"
         const scrollTopBtn = document.querySelector('.scroll-top');
 
         window.addEventListener('scroll', () => {
@@ -304,46 +465,36 @@
           }
         });
 
-// Menu burger
-const mobileMenuBtn = document.querySelector('.mobile-header .mobile-menu-btn');
-const fullscreenMenu = document.querySelector('.fullscreen-menu');
-const mobileHeader = document.querySelector('.mobile-header'); 
-const menuSections = document.querySelectorAll('.menu-section');
+        // Меню бургер
+        const mobileMenuBtn = document.querySelector('.mobile-header .mobile-menu-btn');
+        const fullscreenMenu = document.querySelector('.fullscreen-menu');
+        const mobileHeader = document.querySelector('.mobile-header'); 
+        const menuSections = document.querySelectorAll('.menu-section');
 
-mobileMenuBtn.addEventListener('click', function() {
-  this.classList.toggle('active');
-  fullscreenMenu.classList.toggle('active');
-  mobileHeader.classList.toggle('menu-open'); 
-  document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
-});
+        mobileMenuBtn.addEventListener('click', function() {
+          this.classList.toggle('active');
+          fullscreenMenu.classList.toggle('active');
+          mobileHeader.classList.toggle('menu-open'); 
+          document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+        });
 
-// Fermer le menu lors du clic sur une section
-menuSections.forEach(section => {
-  section.addEventListener('click', function() {
-    const target = this.getAttribute('data-target');
+        // Закрытие меню
+        menuSections.forEach(section => {
+          section.addEventListener('click', function() {
+            const target = this.getAttribute('data-target');
 
-    // Défilement fluide vers la section sélectionnée
-    document.querySelector(target).scrollIntoView({
-      behavior: 'smooth'
-    });
+            document.querySelector(target).scrollIntoView({
+              behavior: 'smooth'
+            });
 
-    // Fermer le menu
-    mobileMenuBtn.classList.remove('active');
-    fullscreenMenu.classList.remove('active');
-    mobileHeader.classList.remove('menu-open');
-    document.body.style.overflow = '';
+            mobileMenuBtn.classList.remove('active');
+            fullscreenMenu.classList.remove('active');
+            mobileHeader.classList.remove('menu-open');
+            document.body.style.overflow = '';
+          });
+        });
 
-    // Mise en surbrillance de la section sélectionnée
-    setTimeout(() => {
-      document.querySelector(target).classList.add('highlight');
-      setTimeout(() => {
-        document.querySelector(target).classList.remove('highlight');
-      }, 2000);
-    }, 500);
-  });
-});
-
-        // Animation d'apparition lors du défilement
+        // Анимация появления секций
         const fadeIns = document.querySelectorAll('.fade-in');
 
         const observer = new IntersectionObserver((entries) => {
@@ -360,8 +511,8 @@ menuSections.forEach(section => {
           observer.observe(section);
         });
 
-        // Animation des cartes du portfolio
-        const cards = document.querySelectorAll('.card');
+        // Анимация карточек
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
 
         const cardObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
@@ -373,23 +524,23 @@ menuSections.forEach(section => {
           threshold: 0.2
         });
 
-        cards.forEach(card => {
-          cardObserver.observe(card);
+        portfolioItems.forEach(item => {
+          cardObserver.observe(item);
         });
 
-        // Filtrage des cartes
+        // Фильтры
         const filterButtons = document.querySelectorAll('.filter-btn');
 
         filterButtons.forEach(function(button) {
           button.addEventListener('click', function() {
             const filter = button.getAttribute('data-filter');
-            const cards = document.querySelectorAll('.card');
+            const items = document.querySelectorAll('.portfolio-item');
 
-            cards.forEach(function(card) {
-              if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                card.style.display = 'block';
+            items.forEach(function(item) {
+              if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.classList.remove('hide');
               } else {
-                card.style.display = 'none';
+                item.classList.add('hide');
               }
             });
 
@@ -400,27 +551,27 @@ menuSections.forEach(section => {
           });
         });
 
-        // Logique mise à jour pour la bannière de cookies
+        // Баннер Cookie
         const cookieBanner = document.getElementById('cookie-banner');
-        const acceptBtn = document.querySelector('.button-accept');
-        const rejectBtn = document.querySelector('.button-reject');
+        const acceptBtn = cookieBanner ? cookieBanner.querySelector('.button-accept') : null;
+        const rejectBtn = cookieBanner ? cookieBanner.querySelector('.button-reject') : null;
 
-        // Vérifier si un choix a déjà été fait
-        if (!localStorage.getItem('cookieChoice')) {
-          cookieBanner.style.display = 'flex';
-        } else {
-          cookieBanner.style.display = 'none';
+        if (cookieBanner) {
+            if (!localStorage.getItem('cookieChoice')) {
+              cookieBanner.style.display = 'flex';
+            } else {
+              cookieBanner.style.display = 'none';
+            }
         }
 
-        // Fonction pour accepter les cookies
         function acceptCookies() {
           localStorage.setItem('cookieChoice', 'accepted');
-          cookieBanner.style.display = 'none';
+          if (cookieBanner) cookieBanner.style.display = 'none';
         }
 
         function rejectCookies() {
           sessionStorage.setItem('cookieRejected', 'true');
-          cookieBanner.style.display = 'none';
+          if (cookieBanner) cookieBanner.style.display = 'none';
         }
 
         if (acceptBtn) {
@@ -430,46 +581,22 @@ menuSections.forEach(section => {
         if (rejectBtn) {
           rejectBtn.addEventListener('click', rejectCookies);
         }
-
-        function checkCookiePreferences() {
-          const choice = localStorage.getItem('cookieChoice');
-          const rejected = sessionStorage.getItem('cookieRejected');
-          
-          if (!choice && !rejected) {
-            cookieBanner.style.display = 'flex';
-          } else {
-            cookieBanner.style.display = 'none';
-          }
-        }
-
-        checkCookiePreferences();
       });
       
-      // Clic sur le logo pour revenir en haut
+      // Клик по лого
       document.querySelectorAll('.mobile-logo, .mobile-logo img').forEach(logo => {
         logo.addEventListener('click', function(e) {
           e.preventDefault();
           window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: 'smooth' 
           });
         });
       });
 
+      // Клик "Наверх"
       document.querySelector('.scroll-top').addEventListener('click', function(e) {
         e.preventDefault();
-        
-        // Pour les appareils mobiles - animation de clic
-        if (window.innerWidth <= 768) {
-          this.style.backgroundColor = '#000';
-          this.style.color = '#ffb347';
-          
-          // Rétablir la couleur après 300ms
-          setTimeout(() => {
-            this.style.backgroundColor = '#ffb347';
-            this.style.color = '#000';
-          }, 300);
-        }
         
         window.scrollTo({
           top: 0,
@@ -482,8 +609,8 @@ menuSections.forEach(section => {
         <a href="privacy_fr.html" target="_blank">En savoir plus</a>.
       </p>
       <div class="cookie-buttons">
-        <button class="button-reject" onclick="rejectCookies()">Tout refuser</button>
-        <button class="button-accept" onclick="acceptCookies()">Accepter</button>
+        <button class="button-reject">Tout refuser</button>
+        <button class="button-accept">Accepter</button>
       </div>
     </div>
   </body>
