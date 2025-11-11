@@ -25,7 +25,7 @@
 
   <div class="mobile-header">
     <div class="mobile-logo">
-      <img src="img/favicon-black-white.png" alt="Logo">
+      <img src="img/YD-logo.png" alt="Logo">
     </div>
     <div class="menu-right-group">
       <span class="mobile-menu-text">MENU</span>
@@ -88,34 +88,6 @@
 
   <div id="conteneur-id">
     
-    <div id="conteneur-menu">
-      <div class="menu">
-        <ul>
-          <li><a href="#conteneur-home">ACCUEIL</a></li>
-          <li><a href="#conteneur-about">À PROPOS</a></li>
-          <li><a href="#conteneur-skills">COMPÉTENCES</a></li>
-          <li><a href="#conteneur-qualification">FORMATION</a></li>
-          <li><a href="#conteneur-services">SERVICES</a></li>
-          <li><a href="#conteneur-process">PROCESSUS</a></li>
-          <li><a href="#conteneur-portfolio">PORTFOLIO</a></li>
-          <li><a href="#conteneur-contact">CONTACT</a></li>
-        </ul>
-        
-            <div class="desktop-language-selector">
-      <div class="language-selector">
-        <button class="language-btn" id="language-toggle">
-          <i class="fas fa-globe"></i>
-          <span class="current-lang">FR</span>
-        </button>
-        <div class="language-dropdown">
-          <a href="index_en.html" class="lang-option">English</a>
-          <a href="index.html" class="lang-option">Français</a>
-        </div>
-      </div>
-    </div>
-     </div>
-    </div>
-
     <div id="conteneur-home" class="fade-in">
       <div class="home">
         <h1>Yevhenii Dehtiarov</h1>
@@ -345,8 +317,8 @@
           <h2>Prendre Contact</h2>
           <p>Une question ou un projet ? N'hésitez pas à m'écrire.</p>
         </div>
-        <form classaction="https://formspree.io/f/mdkgolgy" method="POST" class="contact-form">
-          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        
+        <form action="https://formspree.io/f/mdkgolgy" method="POST" class="contact-form">
           
           <div class="form-group">
             <input type="text" name="name" placeholder="Votre Nom" required>
@@ -357,7 +329,8 @@
             <div class="text">Envoyer le Message</div>
           </button>
         </form>
-      </div>
+        
+        </div>
     </div>
 
 
@@ -421,19 +394,10 @@
           });
         });
         
-        // === КОД НАВИГАЦИИ & HERO FADE ===
+        // === КОД НАВИГАЦИИ & HERO FADE (Упрощенный, без #conteneur-menu) ===
         window.addEventListener('scroll', function() {
-          const nav = document.getElementById('conteneur-menu');
           const mobileNav = document.querySelector('.mobile-header');
           const scrolled = window.scrollY > 10;
-          
-          if (nav) {
-            if (scrolled) {
-              nav.classList.add('scrolled');
-            } else {
-              nav.classList.remove('scrolled');
-            }
-          }
           
           if (mobileNav) {
             if (scrolled) {
