@@ -2,6 +2,7 @@ html {
   scroll-behavior: smooth;
   width: 100%;
   background-color: #000;
+  overflow-y: scroll;
 }
 
 /* === ИЗМЕНЕНО: ФОН === */
@@ -19,11 +20,13 @@ body {
 
   /* === ФОН ДЛЯ ПРОКРУТКИ === */
   background-color: #000;
-  background-image: url('../img/image.png'); /* 1. ЭТОТ ФОН БУДЕТ ВИДЕН ПРИ ПРОКРУТКЕ */
+  background-image: url('../img/image.png');
+  /* 1. ЭТОТ ФОН БУДЕТ ВИДЕН ПРИ ПРОКРУТКЕ */
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Приклеиваем его */
+  background-attachment: fixed;
+  /* Приклеиваем его */
 }
 
 * {
@@ -51,10 +54,11 @@ img {
 #conteneur-services,
 #conteneur-process,
 #conteneur-footer {
-  padding: 100px 0px; 
-  background-color: transparent; 
+  padding: 100px 0px;
+  background-color: transparent;
   overflow-x: hidden;
 }
+
 #conteneur-footer {
   padding-bottom: 30px;
 }
@@ -66,8 +70,8 @@ img {
   width: 90%;
   margin: 0 auto;
   padding: 40px;
-  background-color: rgba(10, 10, 10, 0.5); 
-  backdrop-filter: blur(10px); 
+  background-color: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -82,13 +86,13 @@ img {
 #conteneur-home {
   width: 100%;
   height: 100vh;
-  
-  background-image: url('../img/image.png'); 
+
+  background-image: url('../img/image.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: scroll; 
-  
+  background-attachment: scroll;
+
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -96,7 +100,7 @@ img {
   justify-content: center;
   position: relative;
   padding: 0 20px;
-  opacity: 1; 
+  opacity: 1;
   transform: none;
 }
 
@@ -107,7 +111,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 0;
 }
 
@@ -168,6 +172,7 @@ img {
   text-align: center;
   width: 100%;
 }
+
 .profil-text .title {
   text-align: left;
 }
@@ -180,7 +185,7 @@ img {
   font-family: 'Montserrat', sans-serif;
   padding-bottom: 25px;
   font-size: 2.5rem;
-  font-weight: 700; 
+  font-weight: 700;
   text-transform: uppercase;
   color: #ffffff;
   letter-spacing: 1px;
@@ -193,9 +198,11 @@ img {
   line-height: 1.7;
   color: #cccccc;
 }
+
 .profil-text p {
   text-align: justify;
 }
+
 .title p {
   text-align: center;
   max-width: 800px;
@@ -255,12 +262,15 @@ img {
   margin: auto;
   transition: all 0.3s ease;
 }
+
 .bardiv:hover {
   transform: scale(1.02);
 }
+
 .bardiv:hover h3 {
   color: #ffffff;
 }
+
 .bardiv:hover .progressbar span {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
 }
@@ -296,15 +306,41 @@ img {
   border-radius: 8px;
 }
 
-#conteneur-skills.show .html { width: 90%; }
-#conteneur-skills.show .css { width: 80%; }
-#conteneur-skills.show .javascript { width: 65%; }
-#conteneur-skills.show .php { width: 30%; }
-#conteneur-skills.show .figma { width: 35%; }
-#conteneur-skills.show .c { width: 60%; }
-#conteneur-skills.show .blender { width: 15%; }
-#conteneur-skills.show .python{ width: 45%; }
-#conteneur-skills.show .sql{ width: 30%; }
+#conteneur-skills.show .html {
+  width: 90%;
+}
+
+#conteneur-skills.show .css {
+  width: 80%;
+}
+
+#conteneur-skills.show .javascript {
+  width: 65%;
+}
+
+#conteneur-skills.show .php {
+  width: 30%;
+}
+
+#conteneur-skills.show .figma {
+  width: 35%;
+}
+
+#conteneur-skills.show .c {
+  width: 60%;
+}
+
+#conteneur-skills.show .blender {
+  width: 15%;
+}
+
+#conteneur-skills.show .python {
+  width: 45%;
+}
+
+#conteneur-skills.show .sql {
+  width: 30%;
+}
 
 /* DIPLOMA */
 .qualification {
@@ -316,6 +352,7 @@ img {
   font-weight: 500;
   color: #fff;
 }
+
 .qualification h4 {
   font-size: 1rem;
   font-weight: 400;
@@ -324,7 +361,8 @@ img {
 
 /* Делаем фон секции Processus темнее для контраста */
 .process.floating-card {
-  background-color: rgba(0, 0, 0, 0.6); /* Темнее */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Темнее */
 }
 
 .services-grid {
@@ -335,7 +373,8 @@ img {
 }
 
 .service-card {
-  background-color: rgba(255, 255, 255, 0.05); /* Чуть светлее фона карты */
+  background-color: rgba(255, 255, 255, 0.05);
+  /* Чуть светлее фона карты */
   padding: 40px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -378,6 +417,7 @@ img {
   border-top: 2px solid rgba(255, 255, 255, 0.2);
   transition: border-color 0.3s ease;
 }
+
 .process-step:hover {
   border-color: #ffffff;
 }
@@ -411,10 +451,12 @@ img {
 /* === ДИЗАЙН ФИЛЬТРОВ === */
 .filter-btn {
   background-color: transparent;
-  color: #888; /* Приглушенный цвет */
+  color: #888;
+  /* Приглушенный цвет */
   border: none;
   margin: 0.5rem 1rem;
-  padding: 0.5rem 0; /* Убран боковой padding */
+  padding: 0.5rem 0;
+  /* Убран боковой padding */
   border-radius: 0;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -422,6 +464,7 @@ img {
   font-size: 1.1rem;
   position: relative;
 }
+
 .filter-btn::after {
   content: '';
   position: absolute;
@@ -437,18 +480,23 @@ img {
 .filter-btn:hover {
   color: #ffffff;
 }
+
 .filter-btn:hover::after {
   transform: scaleX(1);
 }
 
 .filter-btn.active {
   background-color: transparent;
-  color: #ffffff; /* Яркий белый */
+  color: #ffffff;
+  /* Яркий белый */
   font-weight: 700;
 }
+
 .filter-btn.active::after {
-  transform: scaleX(1); /* Показываем линию */
+  transform: scaleX(1);
+  /* Показываем линию */
 }
+
 /* === КОНЕЦ === */
 
 
@@ -460,18 +508,22 @@ img {
 /* === ИСПРАВЛЕНИЕ: Убираем подчеркивание у ссылки Wix === */
 a.portfolio-item,
 a.portfolio-item:hover {
-  text-decoration: none; 
-  color: inherit; 
+  text-decoration: none;
+  color: inherit;
 }
+
 a.portfolio-item .portfolio-description h3 {
   color: #fff;
 }
+
 a.portfolio-item .portfolio-description p {
   color: #ccc;
 }
+
 a.portfolio-item .portfolio-description span {
   color: #888;
 }
+
 /* === КОНЕЦ ИСПРАВЛЕНИЯ === */
 
 
@@ -587,6 +639,7 @@ a.portfolio-item .portfolio-description span {
   font-size: 1rem;
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
@@ -599,8 +652,10 @@ a.portfolio-item .portfolio-description span {
 }
 
 .contact-form .button {
-  align-self: center; /* Кнопка по центру */
+  align-self: center;
+  /* Кнопка по центру */
 }
+
 /* === КОНЕЦ: CONTACT FORM === */
 
 
@@ -648,7 +703,7 @@ footer {
 }
 
 footer p {
-  font-size: 14px;  
+  font-size: 14px;
   color: #acacac;
   margin: 10px 0;
   text-align: center;
@@ -758,6 +813,7 @@ footer p {
   transform: translateY(50px) scale(0.98);
   transition: opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
 #conteneur-home.fade-in {
   opacity: 1;
   transform: none;
@@ -833,7 +889,8 @@ footer p {
 
 /* === ИЗМЕНЕНО: Mobile Menu (теперь для всех) === */
 .mobile-header {
-  display: flex; /* Активировано для всех экранов */
+  display: flex;
+  /* Активировано для всех экранов */
   position: fixed;
   top: 0;
   left: 0;
@@ -892,6 +949,7 @@ footer p {
   display: flex;
   gap: 10px;
 }
+
 .header-language-selector .lang-option {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -900,14 +958,17 @@ footer p {
   text-decoration: none;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
+
 .header-language-selector .lang-option:hover {
   color: #fff;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
+
 .header-language-selector .lang-option.active {
   color: #fff;
   font-weight: 700;
 }
+
 /* === КОНЕЦ НОВОГО БЛОКА === */
 
 
@@ -975,20 +1036,21 @@ footer p {
   background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  
+
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Центрируем по вертикали */
+  justify-content: center;
+  /* Центрируем по вертикали */
   align-items: center;
-  
+
   /* Новая анимация: fade-in */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
-  
-  overflow-y: auto; 
-  padding: 40px; 
+
+  overflow-y: scroll;
+  padding: 40px;
 }
 
 .fullscreen-menu.active {
@@ -998,21 +1060,27 @@ footer p {
 
 .menu-container {
   width: 90%;
-  max-width: 600px; /* Сделаем чуть шире */
+  max-width: 600px;
+  /* Сделаем чуть шире */
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px; /* Уменьшим gap */
-  padding: 20px 0; 
-  text-align: center; /* Центрируем текст */
+  gap: 15px;
+  /* Уменьшим gap */
+  padding: 20px 0;
+  text-align: center;
+  /* Центрируем текст */
 }
 
 .menu-section {
-  background: transparent; /* Убран фон */
-  border-left: none; /* Убрана граница */
-  padding: 10px 0; /* Уменьшен padding */
+  background: transparent;
+  /* Убран фон */
+  border-left: none;
+  /* Убрана граница */
+  padding: 10px 0;
+  /* Уменьшен padding */
   transition: all 0.3s ease;
   cursor: pointer;
-  
+
   /* Анимация для staggered fade-in */
   opacity: 0;
   transform: translateY(20px);
@@ -1024,61 +1092,104 @@ footer p {
   opacity: 1;
   transform: translateY(0);
 }
-.fullscreen-menu.active .menu-section:nth-child(1) { transition-delay: 0.1s; }
-.fullscreen-menu.active .menu-section:nth-child(2) { transition-delay: 0.15s; }
-.fullscreen-menu.active .menu-section:nth-child(3) { transition-delay: 0.2s; }
-.fullscreen-menu.active .menu-section:nth-child(4) { transition-delay: 0.25s; }
-.fullscreen-menu.active .menu-section:nth-child(5) { transition-delay: 0.3s; }
-.fullscreen-menu.active .menu-section:nth-child(6) { transition-delay: 0.35s; }
-.fullscreen-menu.active .menu-section:nth-child(7) { transition-delay: 0.4s; }
-.fullscreen-menu.active .menu-section:nth-child(8) { transition-delay: 0.45s; }
-.fullscreen-menu.active .menu-section:nth-child(9) { transition-delay: 0.5s; }
-.fullscreen-menu.active .menu-section.mobile-language-section { transition-delay: 0.55s; }
+
+.fullscreen-menu.active .menu-section:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.fullscreen-menu.active .menu-section:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.fullscreen-menu.active .menu-section:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.fullscreen-menu.active .menu-section:nth-child(4) {
+  transition-delay: 0.25s;
+}
+
+.fullscreen-menu.active .menu-section:nth-child(5) {
+  transition-delay: 0.3s;
+}
+
+.fullscreen-menu.active .menu-section:nth-child(6) {
+  transition-delay: 0.35s;
+}
+
+.fullscreen-menu.active .menu-section:nth-child(7) {
+  transition-delay: 0.4s;
+}
+
+.fullscreen-menu.active .menu-section:nth-child(8) {
+  transition-delay: 0.45s;
+}
+
+.fullscreen-menu.active .menu-section:nth-child(9) {
+  transition-delay: 0.5s;
+}
+
+.fullscreen-menu.active .menu-section.mobile-language-section {
+  transition-delay: 0.55s;
+}
 
 
 .menu-section:hover {
   background: transparent;
-  transform: scale(1.05); /* Эффект "наведения" */
+  transform: scale(1.05);
+  /* Эффект "наведения" */
 }
 
 .menu-section h3 {
   color: #ffffff;
   margin: 0 0 5px 0;
-  font-size: 2.5rem; /* Значительно крупнее */
-  font-weight: 500; /* Немного жирнее */
+  font-size: 2.5rem;
+  /* Значительно крупнее */
+  font-weight: 500;
+  /* Немного жирнее */
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .menu-section:hover h3 {
   color: #fff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Свечение при наведении */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  /* Свечение при наведении */
 }
 
 .menu-section p {
-  color: #888; /* Более тусклый */
+  color: #888;
+  /* Более тусклый */
   margin: 0;
-  font-size: 0.9rem; /* Мельче */
+  font-size: 0.9rem;
+  /* Мельче */
   font-weight: 300;
 }
 
 /* Language (Mobile) */
 .mobile-language-section {
-  border-left: none; /* Убран border */
-  padding: 10px 0; /* Уменьшен padding */
-  margin-top: 20px; /* Больше отступ сверху */
-  background: transparent; /* Убран фон */
+  border-left: none;
+  /* Убран border */
+  padding: 10px 0;
+  /* Уменьшен padding */
+  margin-top: 20px;
+  /* Больше отступ сверху */
+  background: transparent;
+  /* Убран фон */
   border-radius: 0;
   /* Анимация уже есть от .menu-section */
 }
 
 .mobile-language-section h3 {
-  display: none; /* Скрываем заголовок "LANGAGE", он не нужен */
+  display: none;
+  /* Скрываем заголовок "LANGAGE", он не нужен */
 }
 
 .mobile-language-options {
   display: flex;
-  flex-direction: row; /* Горизонтально */
-  justify-content: center; /* Центрируем */
+  flex-direction: row;
+  /* Горизонтально */
+  justify-content: center;
+  /* Центрируем */
   gap: 20px;
 }
 
@@ -1103,8 +1214,10 @@ footer p {
 .mobile-language-options .lang-option:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  transform: scale(1.1); /* Увеличение при наведении */
+  transform: scale(1.1);
+  /* Увеличение при наведении */
 }
+
 /* === КОНЕЦ: ДИЗАЙН BURGER MENU === */
 
 
@@ -1114,7 +1227,7 @@ footer p {
     padding: 30px 20px;
     width: 100%;
   }
-  
+
   #conteneur-about,
   #conteneur-skills,
   #conteneur-qualification,
@@ -1125,14 +1238,16 @@ footer p {
   #conteneur-footer {
     padding: 60px 15px;
   }
+
   #conteneur-footer {
     padding-bottom: 30px;
   }
-  
+
   .home h1 {
     font-size: 3rem;
     letter-spacing: 0;
   }
+
   .home h2 {
     font-size: 1.5rem;
   }
@@ -1142,64 +1257,67 @@ footer p {
   .qualification h2,
   .portfolio h2,
   .contact-container h2 {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
 
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  
+
   .footer-content {
     flex-direction: column;
     padding: 0 15px;
   }
+
   .footer-button {
     padding: 8px 16px;
     font-size: 12px;
     border: 1px solid #ffffff;
   }
-  
+
   .footer-button:hover {
     background: #ffffff;
     color: #000000;
   }
-  
+
   .footer-left {
     position: static;
     margin-bottom: 20px;
     text-align: center;
     width: 100%;
   }
-  
+
   .footer-icons {
     width: 100%;
     margin: 0 auto 20px;
     text-align: center;
   }
-  
+
   .about {
     flex-direction: column;
   }
-  .profil-photo, 
+
+  .profil-photo,
   .profil-text {
     width: 100%;
     float: none;
     top: 0;
-    padding: 0; 
+    padding: 0;
   }
-  
+
   .profil-photo img {
     width: 100%;
     max-width: 300px;
     display: block;
     margin: 0 auto 30px;
   }
-  
-  .profil-text h2, .profil-text .title {
+
+  .profil-text h2,
+  .profil-text .title {
     text-align: center;
   }
-  
+
   .profil-text {
     text-align: center;
   }
@@ -1215,13 +1333,15 @@ footer p {
 
   .portfolio-item,
   .portfolio-item.layout-image-left {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 20px;
   }
+
   .portfolio-item .portfolio-description,
   .portfolio-item.layout-image-left .portfolio-description {
     text-align: left;
   }
+
   .portfolio-item .portfolio-image img,
   .portfolio-item.layout-image-left .portfolio-image img {
     transform: rotate(0deg);
@@ -1235,13 +1355,15 @@ footer p {
 /* === ИЗМЕНЕНО: ОТКЛЮЧЕНИЕ КУРСОРА НА ПЛАНШЕТАХ === */
 @media (max-width: 1024px) {
   body {
-    cursor: auto; /* Возвращаем обычный курсор */
+    cursor: auto;
+    /* Возвращаем обычный курсор */
   }
 
   .cursor-dot,
   .cursor-outline,
   .spotlight {
-    display: none !important; /* Прячем кастомный курсор и прожектор */
+    display: none !important;
+    /* Прячем кастомный курсор и прожектор */
   }
 }
 
@@ -1253,14 +1375,14 @@ footer p {
     bottom: 25px;
     right: 15px;
   }
-  
+
   .scroll-top:active {
     background-color: #555555 !important;
     color: #ffffff !important;
     transform: scale(0.92);
     transition: all 0.1s ease;
   }
-  
+
   .header-language-selector {
     display: none;
   }
@@ -1338,8 +1460,8 @@ body:hover .spotlight {
   position: fixed;
   top: 20px;
   left: 20px;
-  background-color: rgba(10, 10, 10, 0.5); 
-  backdrop-filter: blur(10px); 
+  background-color: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 99px;
@@ -1363,6 +1485,7 @@ body:hover .spotlight {
   transform: scale(1.05);
   color: white;
 }
+
 .back-button i {
   margin-right: 5px;
 }
@@ -1370,7 +1493,8 @@ body:hover .spotlight {
 /* === Контейнер для CV, Privacy, Resources === */
 .subpage-container {
   max-width: 900px;
-  margin-top: 80px; /* Оставляем место для кнопки "Назад" */
+  margin-top: 80px;
+  /* Оставляем место для кнопки "Назад" */
   padding: 40px;
 }
 
@@ -1384,6 +1508,7 @@ body:hover .spotlight {
 .cv-left {
   color: #ccc;
 }
+
 .cv-left img {
   width: 100%;
   max-width: 250px;
@@ -1394,6 +1519,7 @@ body:hover .spotlight {
 .cv-section {
   margin-bottom: 30px;
 }
+
 .cv-section h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -1405,6 +1531,7 @@ body:hover .spotlight {
   padding-bottom: 10px;
   margin-bottom: 15px;
 }
+
 .cv-section h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -1412,20 +1539,25 @@ body:hover .spotlight {
   color: #fff;
   margin-bottom: 5px;
 }
-.cv-section p, .cv-section li {
+
+.cv-section p,
+.cv-section li {
   font-size: 0.95rem;
   color: #ccc;
   margin-bottom: 5px;
 }
+
 .cv-section ul {
   list-style: none;
   padding-left: 0;
 }
+
 .cv-section a {
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
 .cv-section a:hover {
   text-decoration: underline;
 }
@@ -1439,6 +1571,7 @@ body:hover .spotlight {
   position: relative;
   padding-left: 30px;
 }
+
 .cv-timeline::before {
   content: '';
   position: absolute;
@@ -1448,10 +1581,12 @@ body:hover .spotlight {
   width: 2px;
   background-color: rgba(255, 255, 255, 0.3);
 }
+
 .cv-timeline-item {
   position: relative;
   margin-bottom: 30px;
 }
+
 .cv-timeline-item::before {
   content: '';
   position: absolute;
@@ -1464,16 +1599,19 @@ body:hover .spotlight {
   border: 2px solid #1a1a1a;
   z-index: 1;
 }
+
 .cv-timeline-item p {
   font-weight: 700;
   color: #888;
   font-size: 0.9rem;
   margin-bottom: 5px;
 }
+
 .cv-timeline-item h3 {
   font-size: 1.2rem;
   margin-bottom: 5px;
 }
+
 .cv-timeline-item h4 {
   font-size: 1rem;
   font-weight: 400;
@@ -1481,11 +1619,13 @@ body:hover .spotlight {
   font-style: italic;
   margin-bottom: 10px;
 }
+
 .cv-timeline-item ul {
   list-style-type: disc;
   padding-left: 20px;
   color: #ccc;
 }
+
 .cv-timeline-item ul li {
   font-size: 0.95rem;
 }
@@ -1497,6 +1637,7 @@ body:hover .spotlight {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
+
 .resource-card {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 30px;
@@ -1504,22 +1645,26 @@ body:hover .spotlight {
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
+
 .resource-card:hover {
   transform: translateY(-5px);
   background-color: rgba(255, 255, 255, 0.1);
 }
+
 .resource-card h2 {
   font-size: 1.5rem;
   font-weight: 500;
   color: #fff;
   margin-bottom: 10px;
 }
+
 .resource-card p {
   font-size: 1rem;
   line-height: 1.6;
   color: #ccc;
   margin-bottom: 20px;
 }
+
 .resource-card a {
   /* Используем стиль .button */
   background: #ffffff;
@@ -1535,6 +1680,7 @@ body:hover .spotlight {
   text-decoration: none;
   display: inline-block;
 }
+
 .resource-card a:hover {
   background-color: #dddddd;
   transform: scale(1.05);
@@ -1550,6 +1696,7 @@ body:hover .spotlight {
   text-align: center;
   margin-bottom: 30px;
 }
+
 .privacy-content h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -1559,6 +1706,7 @@ body:hover .spotlight {
   margin-bottom: 15px;
   text-align: left;
 }
+
 .privacy-content p {
   font-size: 1.1rem;
   line-height: 1.7;
@@ -1566,14 +1714,17 @@ body:hover .spotlight {
   margin-bottom: 20px;
   text-align: left;
 }
+
 .privacy-content a {
   color: #fff;
   text-decoration: underline;
   font-weight: 700;
 }
+
 .privacy-content a:hover {
   text-decoration: none;
 }
+
 .privacy-content footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 20px;
@@ -1587,41 +1738,55 @@ body:hover .spotlight {
   .floating-card {
     width: 95%;
   }
+
   .subpage-container {
     margin-top: 80px;
     padding: 30px 20px;
   }
+
   .cv-grid {
     grid-template-columns: 1fr;
   }
-  .profil-text h2, .title h2, .qualification h2, .portfolio h2, .contact-container h2,
+
+  .profil-text h2,
+  .title h2,
+  .qualification h2,
+  .portfolio h2,
+  .contact-container h2,
   .privacy-content h1 {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
+
   .services-grid,
   .process-grid,
   .resource-grid {
     grid-template-columns: 1fr;
   }
+
   .process-grid {
     gap: 40px;
   }
+
   .portfolio-item,
   .portfolio-item.layout-image-left {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 20px;
   }
+
   .portfolio-item .portfolio-description,
   .portfolio-item.layout-image-left .portfolio-description {
     text-align: left;
   }
+
   .portfolio-item .portfolio-image img,
   .portfolio-item.layout-image-left .portfolio-image img {
     transform: rotate(0deg);
   }
+
   .form-group {
     flex-direction: column;
   }
+
   .footer-left {
     position: static;
     margin-bottom: 20px;
@@ -1629,6 +1794,7 @@ body:hover .spotlight {
     width: 100%;
   }
 }
+
 @media (max-width: 768px) {
   .header-language-selector {
     display: none;

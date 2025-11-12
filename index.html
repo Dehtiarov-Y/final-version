@@ -493,8 +493,17 @@
         this.classList.toggle('active');
         fullscreenMenu.classList.toggle('active');
         mobileHeader.classList.toggle('menu-open');
-        // Вот единственная строка, которая управляет прокруткой
-        document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+
+        const isActive = fullscreenMenu.classList.contains('active');
+
+        // Управляем ТОЛЬКО 'overflow-y'
+        if (isActive) {
+          document.body.style.overflowY = 'hidden';
+          // Сбрасываем прокрутку меню в начало
+          fullscreenMenu.scrollTop = 0;
+        } else {
+          document.body.style.overflowY = 'auto';
+        }
       });
 
       // Закрытие меню
