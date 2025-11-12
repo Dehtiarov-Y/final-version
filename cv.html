@@ -1,111 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="Website icon" type="png"  href="img/favicon-black-white.png">
   <title>Yevhenii Dehtiarov - CV</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style/styles.css">
-  <style>
-    body {
-      background-color: #1e1e1e;
-      color: #f1f1f1;
-      font-family: "Century Gothic", sans-serif;
-      line-height: 1.6;
-    }
-    
-    .cv-container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: #2a2a2a;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-    
-    h1 {
-      color: #ffb347;
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-weight: 100;
-      font-size: 2rem;
-    }
-    
-    .cv-preview {
-      width: 100%;
-      max-height: 80vh;
-      overflow: auto;
-      margin: 1.5rem 0;
-      border: 1px solid #444;
-      border-radius: 4px;
-    }
-    
-    .cv-preview img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    
-    .cv-actions {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-    
-    .cv-button {
-      padding: 0.75rem 1.5rem;
-      background-color: #ffb347;
-      color: #2a2a2a;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      text-align: center;
-      min-width: 160px;
-    }
-    
-    .cv-button:hover {
-      background-color: #e69c3e;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    @media (max-width: 768px) {
-      .cv-container {
-        margin: 1rem;
-        padding: 1.5rem;
-      }
-      
-      h1 {
-        font-size: 1.75rem;
-      }
-      
-      .cv-actions {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-      
-      .cv-button {
-        width: 100%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <div class="cv-container">
-    <h1>Curriculum Vitae</h1>
-    
-    <div class="cv-preview">
-      <img src="img/newest-cv.png" alt="Yevhenii Dehtiarov CV" loading="lazy"> 
-    </div>
-    
-    <div class="cv-actions">
-      <a href="img/newest-cv.png" download="Yevhenii_Dehtiarov_CV.png" class="cv-button">Download CV</a>
-      <a href="index_en.html" class="cv-button">Back to Home</a>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div class="spotlight"></div>
+
+  <a href="index_en.html" class="back-button">
+    <i class="fas fa-arrow-left"></i> Back to Home
+  </a>
+
+  <div class="floating-card subpage-container">
+    <div class="cv-grid">
+      <div class="cv-left">
+        <img src="img/YD-logo.png" alt="Yevhenii Dehtiarov">
+        
+        <div class="cv-section">
+          <h2>YEVHENII DEHTIAROV</h2>
+          <p>20 YEARS OLD, UI / UX DESIGNER</p>
+        </div>
+
+        <div class="cv-section">
+          <h2>GitHub</h2>
+          <p><a href="https://github.com/Dehtiarov-Y" target="_blank">github.com/Dehtiarov-Y</a></p>
+        </div>
+        
+        <div class="cv-section">
+          <h2>PERSONAL SKILLS</h2>
+          <ul>
+            <li>Figma, Adobe XD, Sketch</li>
+            <li>(Wireframing, Prototyping, UI Design)</li>
+            <li>HTML/CSS/JavaScript</li>
+            <li>(Responsive Design, UI Integration)</li>
+            <li>SEO and Digital Marketing</li>
+            <li>(UX Optimization)</li>
+          </ul>
+        </div>
+
+        <div class="cv-section">
+          <h2>LANGUAGES</h2>
+          <ul>
+            <li>UKRAINIAN - FLUENT</li>
+            <li>RUSSIAN - FLUENT</li>
+            <li>ENGLISH - B2</li>
+            <li>FRENCH - B1</li>
+            <li>GERMAN - A1</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-right">
+        <div class="cv-section">
+          <h2>PROFILE INFO</h2>
+          <p>Future UX/UI designer, currently studying for a BUT MMI at the IUT of Mulhouse, I am developing my skills in designing intuitive and aesthetic interfaces. Passionate about digital design, I combine creativity and user-centered thinking to offer solutions adapted to real needs. My language learning allows me to evolve in an international environment and enrich my collaborative projects.</p>
+        </div>
+
+        <div class="cv-section">
+          <h2>CONTACT</h2>
+          <p><strong>Phone:</strong> 0768195289</p>
+          <p><strong>Email:</strong> eugene.degtyaryov@gmail.com</p>
+          <p><strong>Address:</strong> 5 Avenue Jacques Preiss, RIQUEWIHR</p>
+        </div>
+
+        <div class="cv-section">
+          <h2>EDUCATION</h2>
+          <div class="cv-timeline">
+            <div class="cv-timeline-item">
+              <p>SEPT 2025 - MAY 2028</p>
+              <h3>IUT of Mulhouse – University of Haute-Alsace (France)</h3>
+              <h4>BUT MMI (Multimedia and Internet Professions)</h4>
+            </div>
+            <div class="cv-timeline-item">
+              <p>SEPT 2021 - MAY 2023</p>
+              <h3>GENERAL SECONDARY EDUCATION</h3>
+              <h4>PRIVATE HIGH SCHOOL "ONLINE SCHOOL ALTERNATIVE", Kharkiv</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2>TRAINING</h2>
+          <div class="cv-timeline">
+            <div class="cv-timeline-item">
+              <p>JAN 2025 - MAY 2025</p>
+              <h3>Cap-Digital</h3>
+              <ul>
+                <li>Learning the basics of web development and digital design.</li>
+                <li>Courses in HTML, CSS, JavaScript, UX/UI Design.</li>
+                <li>Final project: creation of a user interface for a web application.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
+
+  <script>
+    // Скрипт для курсора
+    document.addEventListener('DOMContentLoaded', () => {
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorOutline = document.querySelector('.cursor-outline');
+      const spotlight = document.querySelector('.spotlight');
+
+      window.addEventListener('mousemove', (e) => {
+        const { clientX: posX, clientY: posY } = e;
+        if(cursorDot) cursorDot.style.top = `${posY}px`;
+        if(cursorDot) cursorDot.style.left = `${posX}px`;
+        if(cursorDot) cursorDot.style.opacity = '1';
+        if(cursorOutline) cursorOutline.style.top = `${posY}px`;
+        if(cursorOutline) cursorOutline.style.left = `${posX}px`;
+        if(cursorOutline) cursorOutline.style.opacity = '1';
+        if(spotlight) spotlight.style.top = `${posY}px`;
+        if(spotlight) spotlight.style.left = `${posX}px`;
+      });
+
+      document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+    });
+  </script>
 </body>
 </html>
