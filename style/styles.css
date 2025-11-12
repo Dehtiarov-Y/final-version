@@ -19,15 +19,12 @@ body {
 
   /* === ФОН ДЛЯ ПРОКРУТКИ === */
   background-color: #000;
-  background-image: url('/img/Background.png'); /* 1. ЭТОТ ФОН БУДЕТ ВИДЕН ПРИ ПРОКРУТКЕ */
+  background-image: url('img/Background.png'); /* 1. ЭТОТ ФОН БУДЕТ ВИДЕН ПРИ ПРОКРУТКЕ */
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; /* Приклеиваем его */
 }
-
-/* Анимация @keyframes gradientBG удалена */
-
 
 * {
   margin: 0;
@@ -55,7 +52,7 @@ img {
 #conteneur-process,
 #conteneur-footer {
   padding: 100px 0px; 
-  background-color: transparent; /* Сквозь них виден фон body */
+  background-color: transparent; 
   overflow-x: hidden;
 }
 #conteneur-footer {
@@ -78,142 +75,8 @@ img {
 }
 
 
-/* NAVIGATION BAR */
-#conteneur-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: transparent;
-  padding: 15px 0;
-  z-index: 1000;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  box-shadow: none;
-  border-bottom: 1px solid transparent;
-}
+/* === NAVIGATION BAR (DESKTOP) УДАЛЕНА === */
 
-#conteneur-menu.scrolled {
-  background-color: rgba(10, 10, 10, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#conteneur-menu .menu ul {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-}
-
-#conteneur-menu .menu ul li {
-  margin: 0 20px;
-}
-
-#conteneur-menu .menu ul li a {
-  color: #f1f1f1;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 300;
-  position: relative;
-  padding: 5px;
-  transition: color 0.3s ease, text-shadow 0.3s ease; 
-}
-
-#conteneur-menu .menu ul li a::after {
-  content: '';
-  display: none; 
-}
-
-#conteneur-menu .menu ul li a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); 
-}
-
-#conteneur-menu .desktop-language-selector {
-  position: absolute;
-  right: 70px; 
-  top: 50%;
-  transform: translateY(-50%);
-  padding-left: 0;
-}
-
-#conteneur-menu .language-selector {
-  position: relative;
-}
-
-#conteneur-menu .language-btn {
-  background: transparent;
-  border: none; 
-  border-radius: 20px;
-  padding: 6px 15px;
-  color: #f1f1f1;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-#conteneur-menu .language-btn:hover {
-  background: transparent;
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); 
-}
-
-#conteneur-menu .language-btn:hover i {
-  color: #ffffff;
-}
-
-#conteneur-menu .language-btn i {
-  margin-right: 8px;
-  font-size: 14px;
-  color: #f1f1f1;
-  transition: color 0.3s ease; 
-}
-
-#conteneur-menu .current-lang {
-  font-weight: 300;
-  transition: color 0.3s ease; 
-}
-
-#conteneur-menu .language-dropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: rgba(42, 42, 42, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  width: 120px;
-  overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 1001;
-}
-
-#conteneur-menu .language-selector:hover .language-dropdown {
-  opacity: 1;
-  visibility: visible;
-  margin-top: 8px;
-}
-
-#conteneur-menu .lang-option {
-  display: block;
-  padding: 8px 10px;
-  color: #ddd;
-  text-decoration: none;
-  font-size: 14px;
-  transition: all 0.2s ease;
-}
-
-#conteneur-menu .lang-option:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
 
 /* HOME */
 #conteneur-home {
@@ -221,7 +84,7 @@ img {
   height: 100vh;
   
   /* === ИЗМЕНЕНО: Фон 'accueil', НЕ 'fixed' === */
-  background-image: url('/img/new-background.jpg'); /* 2. ЭТОТ ФОН БУДЕТ ТОЛЬКО НА 'HOME' */
+  background-image: url('img/new-background.jpg'); /* 2. ЭТОТ ФОН БУДЕТ ТОЛЬКО НА 'HOME' */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -951,9 +814,9 @@ footer p {
   font-weight: 500;
 }
 
-/* Mobile Menu */
+/* === ИЗМЕНЕНО: Mobile Menu (теперь для всех) === */
 .mobile-header {
-  display: none;
+  display: flex; /* Активировано для всех экранов */
   position: fixed;
   top: 0;
   left: 0;
@@ -1005,6 +868,31 @@ footer p {
   display: flex;
   align-items: center;
 }
+
+/* === НОВЫЙ БЛОК: ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА В ШАПКЕ === */
+.header-language-selector {
+  margin-right: 20px;
+  display: flex;
+  gap: 10px;
+}
+.header-language-selector .lang-option {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.header-language-selector .lang-option:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+.header-language-selector .lang-option.active {
+  color: #fff;
+  font-weight: 700;
+}
+/* === КОНЕЦ НОВОГО БЛОКА === */
+
 
 .mobile-menu-btn {
   background: transparent;
@@ -1167,11 +1055,8 @@ footer p {
     display: flex;
   }
   
-  #conteneur-menu {
-    display: none;
-  }
+  /* #conteneur-menu был удален */
 
-  /* Уменьшаем padding на мобильных */
   .floating-card {
     padding: 30px 20px;
     width: 100%;
@@ -1185,7 +1070,7 @@ footer p {
   #conteneur-services,
   #conteneur-process,
   #conteneur-footer {
-    padding: 60px 15px; /* Меньше отступов между картами */
+    padding: 60px 15px;
   }
   #conteneur-footer {
     padding-bottom: 30px;
@@ -1270,10 +1155,9 @@ footer p {
     margin: 20px auto 0;
   }
 
-  /* Адаптация новых секций */
   .services-grid,
   .process-grid {
-    grid-template-columns: 1fr; /* 1 колонка на мобильных */
+    grid-template-columns: 1fr;
   }
 
   .portfolio-item,
@@ -1311,54 +1195,17 @@ footer p {
     transform: scale(0.92);
     transition: all 0.1s ease;
   }
-}
-
-/* DESKTOP TO MOBILE NAV TRANSITION (1350px) */
-@media (max-width: 1350px) {
-  #conteneur-menu {
+  
+  /* Скрываем переключатель языка в шапке на мобильных (он есть в меню) */
+  .header-language-selector {
     display: none;
-  }
-  
-  .mobile-header {
-    display: flex;
-  }
-  
-  .mobile-menu-btn {
-    display: block;
-    z-index: 1002;
-  }
-  
-  #conteneur-menu .desktop-language-selector {
-    display: none;
-  }
-  
-  .fullscreen-menu {
-    top: 55px;
-    height: calc(100vh - 55px);
-  }
-  
-  .mobile-language-section {
-    display: block;
   }
 }
 
-@media (min-width: 1351px) {
-  #conteneur-menu {
-    display: block;
-  }
-  
-  .mobile-header {
-    display: none !important;
-  }
-  
-  .fullscreen-menu {
-    display: none !important;
-  }
-  
-  #conteneur-menu .desktop-language-selector {
-    display: block;
-  }
-}
+/* === УДАЛЕНЫ МЕДИА-ЗАПРОСЫ ДЛЯ ПЕРЕКЛЮЧЕНИЯ МЕНЮ === */
+/* @media (max-width: 1350px) { ... } */
+/* @media (min-width: 1351px) { ... } */
+
 
 /* === СТИЛИ КУРСОРА === */
 .cursor-dot,
@@ -1420,6 +1267,312 @@ body:hover .spotlight {
 
 @media (max-width: 768px) {
   .spotlight {
+    display: none;
+  }
+}
+
+/*
+ * === СТИЛИ ДЛЯ ВТОРИЧНЫХ СТРАНИЦ (CV, PRIVACY, RESOURCES) ===
+ */
+
+/* === Кнопка "Назад" === */
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(10, 10, 10, 0.5); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+  color: white;
+}
+.back-button i {
+  margin-right: 5px;
+}
+
+/* === Контейнер для CV, Privacy, Resources === */
+.subpage-container {
+  max-width: 900px;
+  margin-top: 80px; /* Оставляем место для кнопки "Назад" */
+  padding: 40px;
+}
+
+/* === Стили для CV (на основе твоего фото) === */
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+}
+
+.cv-left {
+  color: #ccc;
+}
+.cv-left img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.cv-section {
+  margin-bottom: 30px;
+}
+.cv-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+.cv-section h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.cv-section p, .cv-section li {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+.cv-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+.cv-section a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.cv-section a:hover {
+  text-decoration: underline;
+}
+
+.cv-right .cv-section h2 {
+  border-bottom-color: #aaa;
+  color: #eee;
+}
+
+.cv-timeline {
+  position: relative;
+  padding-left: 30px;
+}
+.cv-timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  bottom: 5px;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.cv-timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+.cv-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #1a1a1a;
+  z-index: 1;
+}
+.cv-timeline-item p {
+  font-weight: 700;
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+.cv-timeline-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.cv-timeline-item h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ccc;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.cv-timeline-item ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #ccc;
+}
+.cv-timeline-item ul li {
+  font-size: 0.95rem;
+}
+
+
+/* === Стили для Resources === */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+.resource-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.resource-card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.resource-card h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.resource-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+.resource-card a {
+  /* Используем стиль .button */
+  background: #ffffff;
+  color: #000000;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0.8em 1.5em;
+  outline: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.resource-card a:hover {
+  background-color: #dddddd;
+  transform: scale(1.05);
+}
+
+
+/* === Стили для Privacy === */
+.privacy-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.privacy-content h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.privacy-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.privacy-content a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.privacy-content a:hover {
+  text-decoration: none;
+}
+.privacy-content footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  margin-top: 40px;
+  text-align: center;
+  color: #888;
+}
+
+/* === Адаптация для второстепенных страниц === */
+@media (max-width: 879px) {
+  .floating-card {
+    width: 95%;
+  }
+  .subpage-container {
+    margin-top: 80px;
+    padding: 30px 20px;
+  }
+  .cv-grid {
+    grid-template-columns: 1fr;
+  }
+  .profil-text h2, .title h2, .qualification h2, .portfolio h2, .contact-container h2,
+  .privacy-content h1 {
+    font-size: 2rem; 
+  }
+  .services-grid,
+  .process-grid,
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-grid {
+    gap: 40px;
+  }
+  .portfolio-item,
+  .portfolio-item.layout-image-left {
+    flex-direction: column; 
+    gap: 20px;
+  }
+  .portfolio-item .portfolio-description,
+  .portfolio-item.layout-image-left .portfolio-description {
+    text-align: left;
+  }
+  .portfolio-item .portfolio-image img,
+  .portfolio-item.layout-image-left .portfolio-image img {
+    transform: rotate(0deg);
+  }
+  .form-group {
+    flex-direction: column;
+  }
+  .footer-left {
+    position: static;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .header-language-selector {
     display: none;
   }
 }
