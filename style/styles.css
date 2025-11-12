@@ -76,7 +76,6 @@ img {
 
 
 /* === NAVIGATION BAR (DESKTOP) УДАЛЕНА === */
-/* Все стили #conteneur-menu... удалены */
 
 
 /* HOME */
@@ -965,116 +964,152 @@ footer p {
   top: 0;
 }
 
-/* Fullscreen Menu */
+/* === ИЗМЕНЕНО: ДИЗАЙН BURGER MENU === */
 .fullscreen-menu {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.98);
+  /* Новый "стеклянный" фон */
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; 
+  justify-content: center; /* Центрируем по вертикали */
   align-items: center;
-  transform: translateY(-100%);
+  
+  /* Новая анимация: fade-in */
   opacity: 0;
-  transition: transform 0.5s ease, opacity 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  
   overflow-y: auto; 
-  padding: 80px 0 40px; 
+  padding: 40px; 
 }
 
 .fullscreen-menu.active {
-  transform: translateY(0);
   opacity: 1;
+  visibility: visible;
 }
 
 .menu-container {
   width: 90%;
-  max-width: 500px;
+  max-width: 600px; /* Сделаем чуть шире */
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
+  gap: 15px; /* Уменьшим gap */
   padding: 20px 0; 
+  text-align: center; /* Центрируем текст */
 }
 
 .menu-section {
-  background: rgba(42, 42, 42, 0.8);
-  border-left: 4px solid #ffffff;
-  padding: 20px;
+  background: transparent; /* Убран фон */
+  border-left: none; /* Убрана граница */
+  padding: 10px 0; /* Уменьшен padding */
   transition: all 0.3s ease;
   cursor: pointer;
+  
+  /* Анимация для staggered fade-in */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+/* Staggered animation */
+.fullscreen-menu.active .menu-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fullscreen-menu.active .menu-section:nth-child(1) { transition-delay: 0.1s; }
+.fullscreen-menu.active .menu-section:nth-child(2) { transition-delay: 0.15s; }
+.fullscreen-menu.active .menu-section:nth-child(3) { transition-delay: 0.2s; }
+.fullscreen-menu.active .menu-section:nth-child(4) { transition-delay: 0.25s; }
+.fullscreen-menu.active .menu-section:nth-child(5) { transition-delay: 0.3s; }
+.fullscreen-menu.active .menu-section:nth-child(6) { transition-delay: 0.35s; }
+.fullscreen-menu.active .menu-section:nth-child(7) { transition-delay: 0.4s; }
+.fullscreen-menu.active .menu-section:nth-child(8) { transition-delay: 0.45s; }
+.fullscreen-menu.active .menu-section:nth-child(9) { transition-delay: 0.5s; }
+.fullscreen-menu.active .menu-section.mobile-language-section { transition-delay: 0.55s; }
+
+
 .menu-section:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateX(10px);
+  background: transparent;
+  transform: scale(1.05); /* Эффект "наведения" */
 }
 
 .menu-section h3 {
   color: #ffffff;
-  margin: 0 0 10px 0;
-  font-size: 20px;
-  font-weight: 100;
+  margin: 0 0 5px 0;
+  font-size: 2.5rem; /* Значительно крупнее */
+  font-weight: 500; /* Немного жирнее */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.menu-section:hover h3 {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Свечение при наведении */
 }
 
 .menu-section p {
-  color: #ddd;
+  color: #888; /* Более тусклый */
   margin: 0;
-  font-size: 14px;
+  font-size: 0.9rem; /* Мельче */
+  font-weight: 300;
 }
 
 /* Language (Mobile) */
 .mobile-language-section {
-  border-left: 3px solid #ffffff;
-  padding: 20px;
-  margin-top: 10px;
-  background: rgba(42, 42, 42, 0.3);
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border-left: none; /* Убран border */
+  padding: 10px 0; /* Уменьшен padding */
+  margin-top: 20px; /* Больше отступ сверху */
+  background: transparent; /* Убран фон */
+  border-radius: 0;
+  /* Анимация уже есть от .menu-section */
 }
 
 .mobile-language-section h3 {
-  color: #ffffff;
-  margin-bottom: 15px;
-  font-size: 18px;
-  font-weight: 300;
+  display: none; /* Скрываем заголовок "LANGAGE", он не нужен */
 }
 
 .mobile-language-options {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-direction: row; /* Горизонтально */
+  justify-content: center; /* Центрируем */
+  gap: 20px;
 }
 
 .mobile-language-options .lang-option {
-  color: #f1f1f1;
+  color: #888;
   text-decoration: none;
-  font-size: 16px;
-  padding: 10px 15px;
-  background: rgba(30, 30, 30, 0.5);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  background: transparent;
   border-radius: 6px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
 }
 
-.mobile-language-options .lang-option:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  transform: translateX(5px);
+.mobile-language-options .lang-option span {
+  margin-right: 8px;
+  font-size: 1.2rem;
 }
 
+.mobile-language-options .lang-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: scale(1.1); /* Увеличение при наведении */
+}
+/* === КОНЕЦ: ДИЗАЙН BURGER MENU === */
+
+
 /* === RESPONSIVE === */
-
 @media (max-width: 879px) {
-  .mobile-header {
-    display: flex;
-  }
-  
-  /* #conteneur-menu был удален */
-
   .floating-card {
     padding: 30px 20px;
     width: 100%;
@@ -1195,7 +1230,19 @@ footer p {
   .form-group {
     flex-direction: column;
   }
+}
 
+/* === ИЗМЕНЕНО: ОТКЛЮЧЕНИЕ КУРСОРА НА ПЛАНШЕТАХ === */
+@media (max-width: 1024px) {
+  body {
+    cursor: auto; /* Возвращаем обычный курсор */
+  }
+
+  .cursor-dot,
+  .cursor-outline,
+  .spotlight {
+    display: none !important; /* Прячем кастомный курсор и прожектор */
+  }
 }
 
 @media (max-width: 768px) {
@@ -1280,12 +1327,6 @@ body.cursor-hover .cursor-dot {
 
 body:hover .spotlight {
   opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .spotlight {
-    display: none;
-  }
 }
 
 /*

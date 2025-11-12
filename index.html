@@ -289,7 +289,7 @@
           <a href="https://www.revelation-ww.com/" target="_blank" class="portfolio-item layout-image-left" data-category="site">
             <div class="portfolio-description">
               <h3>Site Vitrine (Wix)</h3>
-              <p>Un site web promotionnel créé sur la plateforme Wix, démontrant la capacité à utiliser des constructeurs de sites pour un déploiement rapide et efficace.</p>
+              <p>Un site web promotionnel créé sur la plateforme Wix, démontrant la capacité à utiliser des constructeurs de sites pour un déploiEMENT rapide et efficace.</p>
               <span>Outils: Wix, SEO, Design Adaptatif</span>
             </div>
             <div class="portfolio-image">
@@ -323,7 +323,7 @@
             <div class="portfolio-description">
               <h3>Mon Logo Personnel</h3>
               <p>Création d'un logo personnalisé pour représenter mon identité de designer, en mettant l'accent sur la simplicité et la reconnaissance.</p>
-              <span>Outils: Adobe Photoshop</span>
+              <span>Outils: Canva</span>
             </div>
             <div class="portfolio-image">
               <img src="img/YD-logo.png" alt="Aperçu du logo personnel">
@@ -403,16 +403,16 @@
         window.addEventListener('mousemove', (e) => {
           const { clientX: posX, clientY: posY } = e;
           
-          cursorDot.style.top = `${posY}px`;
-          cursorDot.style.left = `${posX}px`;
-          cursorDot.style.opacity = '1';
+          if (cursorDot) cursorDot.style.top = `${posY}px`;
+          if (cursorDot) cursorDot.style.left = `${posX}px`;
+          if (cursorDot) cursorDot.style.opacity = '1';
 
-          cursorOutline.style.top = `${posY}px`;
-          cursorOutline.style.left = `${posX}px`;
-          cursorOutline.style.opacity = '1';
+          if (cursorOutline) cursorOutline.style.top = `${posY}px`;
+          if (cursorOutline) cursorOutline.style.left = `${posX}px`;
+          if (cursorOutline) cursorOutline.style.opacity = '1';
 
-          spotlight.style.top = `${posY}px`;
-          spotlight.style.left = `${posX}px`;
+          if (spotlight) spotlight.style.top = `${posY}px`;
+          if (spotlight) spotlight.style.left = `${posX}px`;
         });
 
         // 'cursor-hover' class
@@ -456,9 +456,9 @@
 
         window.addEventListener('scroll', () => {
           if (window.scrollY > 400) {
-            scrollTopBtn.classList.add('visible');
+            if (scrollTopBtn) scrollTopBtn.classList.add('visible');
           } else {
-            scrollTopBtn.classList.remove('visible');
+            if (scrollTopBtn) scrollTopBtn.classList.remove('visible');
           }
         });
 
@@ -468,62 +468,70 @@
         const mobileHeader = document.querySelector('.mobile-header'); 
         const menuSections = document.querySelectorAll('.menu-section');
 
-        mobileMenuBtn.addEventListener('click', function() {
-          this.classList.toggle('active');
-          fullscreenMenu.classList.toggle('active');
-          mobileHeader.classList.toggle('menu-open'); 
-          document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
-        });
+        if (mobileMenuBtn) {
+          mobileMenuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            if (fullscreenMenu) fullscreenMenu.classList.toggle('active');
+            if (mobileHeader) mobileHeader.classList.toggle('menu-open'); 
+            document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+          });
+        }
 
         // Закрытие меню
         menuSections.forEach(section => {
           section.addEventListener('click', function() {
             const target = this.getAttribute('data-target');
+            if (!target) return; // Для секции языка
 
-            document.querySelector(target).scrollIntoView({
-              behavior: 'smooth'
-            });
+            const targetElement = document.querySelector(target);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
 
-            mobileMenuBtn.classList.remove('active');
-            fullscreenMenu.classList.remove('active');
-            mobileHeader.classList.remove('menu-open');
+            if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+            if (fullscreenMenu) fullscreenMenu.classList.remove('active');
+            if (mobileHeader) mobileHeader.classList.remove('menu-open');
             document.body.style.overflow = '';
           });
         });
 
         // Анимация появления секций
         const fadeIns = document.querySelectorAll('.fade-in');
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('show');
-            }
+        if (fadeIns.length > 0) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+              }
+            });
+          }, {
+            threshold: 0.1
           });
-        }, {
-          threshold: 0.1
-        });
 
-        fadeIns.forEach(section => {
-          observer.observe(section);
-        });
+          fadeIns.forEach(section => {
+            observer.observe(section);
+          });
+        }
 
         // Анимация карточек
         const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-        const cardObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('show');
-            }
+        if (portfolioItems.length > 0) {
+          const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+              }
+            });
+          }, {
+            threshold: 0.2
           });
-        }, {
-          threshold: 0.2
-        });
 
-        portfolioItems.forEach(item => {
-          cardObserver.observe(item);
-        });
+          portfolioItems.forEach(item => {
+            cardObserver.observe(item);
+          });
+        }
 
         // Фильтры
         const filterButtons = document.querySelectorAll('.filter-btn');
@@ -592,14 +600,17 @@
       });
 
       // Клик "Наверх"
-      document.querySelector('.scroll-top').addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
+      const scrollTopButton = document.querySelector('.scroll-top');
+      if (scrollTopButton) {
+        scrollTopButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
         });
-      });
+      }
     </script>
     <div id="cookie-banner">
       <p>Ce site utilise des cookies pour améliorer votre expérience. En continuant à naviguer, vous acceptez notre utilisation des cookies. 
