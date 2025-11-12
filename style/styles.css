@@ -19,7 +19,7 @@ body {
 
   /* === ФОН ДЛЯ ПРОКРУТКИ === */
   background-color: #000;
-  background-image: url('img/Background.png'); /* 1. ЭТОТ ФОН БУДЕТ ВИДЕН ПРИ ПРОКРУТКЕ */
+  background-image: url('/img/Background.png'); /* 1. ЭТОТ ФОН БУДЕТ ВИДЕН ПРИ ПРОКРУТКЕ */
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -84,7 +84,7 @@ img {
   height: 100vh;
   
   /* === ИЗМЕНЕНО: Фон 'accueil', НЕ 'fixed' === */
-  background-image: url('img/new-background.jpg'); /* 2. ЭТОТ ФОН БУДЕТ ТОЛЬКО НА 'HOME' */
+  background-image: url('/img/new-background.jpg'); /* 2. ЭТОТ ФОН БУДЕТ ТОЛЬКО НА 'HOME' */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
