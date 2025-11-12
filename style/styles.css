@@ -19,7 +19,7 @@ body {
 
   /* === ФОН ДЛЯ ПРОКРУТКИ === */
   background-color: #000;
-  background-image: url('/img/image.png'); /* 1. ЭТОТ ФОН БУДЕТ ВИДЕН ПРИ ПРОКРУТКЕ */
+  background-image: url('../img/image.png'); /* 1. ЭТОТ ФОН БУДЕТ ВИДЕН ПРИ ПРОКРУТКЕ */
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -83,7 +83,7 @@ img {
   width: 100%;
   height: 100vh;
   
-  background-image: url('/img/image.png'); 
+  background-image: url('../img/image.png'); 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
