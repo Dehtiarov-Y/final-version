@@ -1,73 +1,112 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="Website icon" type="png"  href="img/favicon-black-white.png">
+  <link rel="Website icon" type="png" href="img/favicon-black-white.png">
   <title>Politique de Confidentialité</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="style/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
+  <div id="loader-wrapper">
+    <div class="loader-content">
+      <img src="img/YD-logo.png" alt="Loading..." class="loader-logo">
+    </div>
+  </div>
 
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
   <div class="spotlight"></div>
 
-   <a href="index.html" class="back-button">
+  <a href="index.html" class="back-button">
     <i class="fas fa-arrow-left"></i> Retour à l'accueil
   </a>
 
   <div class="floating-card subpage-container privacy-content">
     <h1>Politique de Confidentialité</h1>
-    <p>Dernière mise à jour : Novembre 2025</p>
+    <p>Dernière mise à jour : Décembre 2025</p>
 
     <p>Ce site web est créé et maintenu par Yevhenii Dehtiariov. Votre vie privée est importante pour moi.</p>
 
     <h2>Collecte de Données</h2>
-    <p>Ce site ne collecte pas directement de données personnelles. Cependant, si vous remplissez un formulaire de contact, les informations que vous soumettez (par exemple, nom, email) seront utilisées uniquement pour répondre à votre demande.</p>
+    <p>Ce site ne collecte pas directement de données personnelles. Cependant, si vous remplissez un formulaire de
+      contact, les informations que vous soumettez (par exemple, nom, email) seront utilisées uniquement pour répondre à
+      votre demande.</p>
 
     <h2>Cookies</h2>
-    <p>Ce site peut utiliser des cookies pour améliorer votre expérience de navigation. Aucune information personnellement identifiable n'est stockée.</p>
+    <p>Ce site peut utiliser des cookies pour améliorer votre expérience de navigation. Aucune information
+      personnellement identifiable n'est stockée.</p>
 
     <h2>Services Tiers</h2>
-    <p>Ce site peut inclure du contenu hébergé par des tiers (par exemple, polices, vidéos ou analyses). Ces fournisseurs peuvent utiliser des cookies ou d'autres technologies de suivi.</p>
+    <p>Ce site peut inclure du contenu hébergé par des tiers (par exemple, polices, vidéos ou analyses). Ces
+      fournisseurs peuvent utiliser des cookies ou d'autres technologies de suivi.</p>
 
     <h2>Vos Droits</h2>
-    <p>Vous avez le droit de demander l'accès ou la suppression de vos données collectées via le formulaire de contact.</p>
+    <p>Vous avez le droit de demander l'accès ou la suppression de vos données collectées via le formulaire de contact.
+    </p>
 
     <h2>Contact</h2>
-    <p>Si vous avez des questions concernant cette politique, veuillez me contacter à <a href="mailto:eugene.degtyaryov@gmail.com">eugene.degtyaryov@gmail.com</a>.</p>
+    <p>Si vous avez des questions concernant cette politique, veuillez me contacter à <a
+        href="mailto:eugene.degtyaryov@gmail.com">eugene.degtyaryov@gmail.com</a>.</p>
 
     <p>Merci de visiter mon portfolio.</p>
-    
+
     <footer>
       <p>© 2025 Yevhenii Dehtiarov - Tous droits réservés</p>
     </footer>
   </div>
-  
+
   <script>
-    // Скрипт для курсора
     document.addEventListener('DOMContentLoaded', () => {
+
+      // === КОД ЗАГРУЗЧИКА (ВСЕГДА ПОКАЗЫВАТЬ) ===
+      const loader = document.getElementById('loader-wrapper');
+
+      // 1. Блокируем прокрутку сразу
+      document.body.style.overflow = 'hidden';
+
+      // 2. Ждем 2 секунды (можешь поменять 2000 на другое число)
+      setTimeout(() => {
+
+        // Добавляем класс для плавного исчезновения (в CSS)
+        loader.classList.add('loader-hidden');
+
+        // Возвращаем прокрутку
+        document.body.style.overflow = '';
+
+        // 3. Полностью удаляем блок из верстки после завершения анимации исчезновения
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 800); // 800мс - это время transition в CSS
+
+      }, 2000); // Время показа логотипа (2 секунды)
+
+      // === КОНЕЦ КОДА ЗАГРУЗЧИКА === //   
+
+
+      // Скрипт для курсора
       const cursorDot = document.querySelector('.cursor-dot');
       const cursorOutline = document.querySelector('.cursor-outline');
       const spotlight = document.querySelector('.spotlight');
 
       window.addEventListener('mousemove', (e) => {
         const { clientX: posX, clientY: posY } = e;
-        if(cursorDot) cursorDot.style.top = `${posY}px`;
-        if(cursorDot) cursorDot.style.left = `${posX}px`;
-        if(cursorDot) cursorDot.style.opacity = '1';
-        if(cursorOutline) cursorOutline.style.top = `${posY}px`;
-        if(cursorOutline) cursorOutline.style.left = `${posX}px`;
-        if(cursorOutline) cursorOutline.style.opacity = '1';
-        if(spotlight) spotlight.style.top = `${posY}px`;
-        if(spotlight) spotlight.style.left = `${posX}px`;
+        if (cursorDot) cursorDot.style.top = `${posY}px`;
+        if (cursorDot) cursorDot.style.left = `${posX}px`;
+        if (cursorDot) cursorDot.style.opacity = '1';
+        if (cursorOutline) cursorOutline.style.top = `${posY}px`;
+        if (cursorOutline) cursorOutline.style.left = `${posX}px`;
+        if (cursorOutline) cursorOutline.style.opacity = '1';
+        if (spotlight) spotlight.style.top = `${posY}px`;
+        if (spotlight) spotlight.style.left = `${posX}px`;
       });
 
       document.querySelectorAll('a, button').forEach(el => {
@@ -77,4 +116,5 @@
     });
   </script>
 </body>
+
 </html>
