@@ -18,6 +18,11 @@
 </head>
 
 <body>
+  <div id="loader-wrapper">
+    <div class="loader-content">
+      <img src="img/YD-logo.png" alt="Loading..." class="loader-logo">
+    </div>
+  </div>
 
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
@@ -410,6 +415,38 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
+      // === КОД ЗАГРУЗЧИКА (LOADER) ===
+      const loader = document.getElementById('loader-wrapper');
+
+      // Проверяем, есть ли запись в sessionStorage (сессия браузера)
+      // Если записи НЕТ - значит пользователь зашел первый раз
+      if (!sessionStorage.getItem('hasVisited')) {
+
+        // Блокируем прокрутку во время загрузки
+        document.body.style.overflow = 'hidden';
+
+        // Ждем 2.5 секунды (время показа логотипа)
+        setTimeout(() => {
+          loader.classList.add('loader-hidden');
+          document.body.style.overflow = ''; // Возвращаем прокрутку
+
+          // Записываем, что пользователь уже был здесь
+          sessionStorage.setItem('hasVisited', 'true');
+
+          // Полностью удаляем элемент через секунду (после анимации исчезновения)
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 800);
+
+        }, 2500); // 2500 мс = 2.5 секунды
+
+      } else {
+        // Если пользователь уже был (обновил страницу или перешел по ссылке),
+        // скрываем загрузчик мгновенно
+        loader.style.display = 'none';
+      }
+      // === КОНЕЦ КОДА ЗАГРУЗЧИКА ===
+      
       // === КОД КУРСОРА & ПРОЖЕКТОРА ===
       const cursorDot = document.querySelector('.cursor-dot');
       const cursorOutline = document.querySelector('.cursor-outline');
@@ -483,7 +520,7 @@
       const mobileHeader = document.querySelector('.mobile-header');
       const menuSections = document.querySelectorAll('.menu-section');
 
-      mobileMenuBtn.addEventListener('click', function () { 
+      mobileMenuBtn.addEventListener('click', function () {
         this.classList.toggle('active');
         fullscreenMenu.classList.toggle('active');
         mobileHeader.classList.toggle('menu-open');

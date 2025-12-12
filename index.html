@@ -18,6 +18,11 @@
 </head>
 
 <body>
+  <div id="loader-wrapper">
+    <div class="loader-content">
+      <img src="img/YD-logo.png" alt="Loading..." class="loader-logo">
+    </div>
+  </div>
 
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
@@ -416,230 +421,262 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      // === КОД КУРСОРА & ПРОЖЕКТОРА ===
-      const cursorDot = document.querySelector('.cursor-dot');
-      const cursorOutline = document.querySelector('.cursor-outline');
-      const spotlight = document.querySelector('.spotlight');
+      // === КОД ЗАГРУЗЧИКА (LOADER) ===
+      const loader = document.getElementById('loader-wrapper');
 
-      window.addEventListener('mousemove', (e) => {
-        const { clientX: posX, clientY: posY } = e;
+      // Проверяем, есть ли запись в sessionStorage (сессия браузера)
+      // Если записи НЕТ - значит пользователь зашел первый раз
+      if (!sessionStorage.getItem('hasVisited')) {
 
-        if (cursorDot) cursorDot.style.top = `${posY}px`;
-        if (cursorDot) cursorDot.style.left = `${posX}px`;
-        if (cursorDot) cursorDot.style.opacity = '1';
+        // Блокируем прокрутку во время загрузки
+        document.body.style.overflow = 'hidden';
 
-        if (cursorOutline) cursorOutline.style.top = `${posY}px`;
-        if (cursorOutline) cursorOutline.style.left = `${posX}px`;
-        if (cursorOutline) cursorOutline.style.opacity = '1';
+        // Ждем 2.5 секунды (время показа логотипа)
+        setTimeout(() => {
+          loader.classList.add('loader-hidden');
+          document.body.style.overflow = ''; // Возвращаем прокрутку
 
-        if (spotlight) spotlight.style.top = `${posY}px`;
-        if (spotlight) spotlight.style.left = `${posX}px`;
-      });
+          // Записываем, что пользователь уже был здесь
+          sessionStorage.setItem('hasVisited', 'true');
 
-      // 'cursor-hover' class
-      document.querySelectorAll(
-        'a, button, .menu-section, .filter-btn, .scroll-top, .portfolio-item'
-      ).forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          document.body.classList.add('cursor-hover');
-        });
-        el.addEventListener('mouseleave', () => {
-          document.body.classList.remove('cursor-hover');
-        });
-      });
+          // Полностью удаляем элемент через секунду (после анимации исчезновения)
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 800);
 
-      // === ИЗМЕНЕНО: КОД НАВИГАЦИИ (УДАЛЕНО УПОМИНАНИЕ #conteneur-menu) ===
-      window.addEventListener('scroll', function () {
-        const mobileNav = document.querySelector('.mobile-header');
-        const scrolled = window.scrollY > 10;
+        }, 2500); // 2500 мс = 2.5 секунды
 
-        if (mobileNav) {
-          if (scrolled) {
-            mobileNav.classList.add('scrolled');
-          } else {
-            mobileNav.classList.remove('scrolled');
-          }
-        }
-
-        const homeContent = document.querySelector('.home');
-        if (homeContent) {
-          let scrollPercent = window.scrollY / (window.innerHeight * 0.5);
-          let opacity = 1 - Math.min(scrollPercent, 1);
-          let transform = Math.min(scrollPercent * 100, 100);
-
-          homeContent.style.opacity = opacity;
-          homeContent.style.transform = `translate3d(0, -${transform}px, 0)`;
-        }
-      });
-
-      // Кнопка "Наверх"
-      const scrollTopBtn = document.querySelector('.scroll-top');
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-          if (scrollTopBtn) scrollTopBtn.classList.add('visible');
-        } else {
-          if (scrollTopBtn) scrollTopBtn.classList.remove('visible');
-        }
-      });
-
-      // Меню бургер
-      const mobileMenuBtn = document.querySelector('.mobile-header .mobile-menu-btn');
-      const fullscreenMenu = document.querySelector('.fullscreen-menu');
-      const mobileHeader = document.querySelector('.mobile-header');
-      const menuSections = document.querySelectorAll('.menu-section');
-
-      mobileMenuBtn.addEventListener('click', function () {
-        this.classList.toggle('active');
-        fullscreenMenu.classList.toggle('active');
-        mobileHeader.classList.toggle('menu-open');
-
-        const isActive = fullscreenMenu.classList.contains('active');
-
-        // Управляем ТОЛЬКО 'overflow-y'
-        if (isActive) {
-          document.body.style.overflowY = 'hidden';
-          // Сбрасываем прокрутку меню в начало
-          fullscreenMenu.scrollTop = 0;
-        } else {
-          document.body.style.overflowY = 'auto';
-        }
-      });
-
-      // Закрытие меню
-      menuSections.forEach(section => {
-        section.addEventListener('click', function () {
-          const target = this.getAttribute('data-target');
-          if (!target) return; // Для секции языка
-
-          const targetElement = document.querySelector(target);
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-
-          if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
-          if (fullscreenMenu) fullscreenMenu.classList.remove('active');
-          if (mobileHeader) mobileHeader.classList.remove('menu-open');
-          document.body.style.overflow = '';
-        });
-      });
-
-      // Анимация появления секций
-      const fadeIns = document.querySelectorAll('.fade-in');
-      if (fadeIns.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('show');
-            }
-          });
-        }, {
-          threshold: 0.1
-        });
-
-        fadeIns.forEach(section => {
-          observer.observe(section);
-        });
+      } else {
+        // Если пользователь уже был (обновил страницу или перешел по ссылке),
+        // скрываем загрузчик мгновенно
+        loader.style.display = 'none';
       }
+      // === КОНЕЦ КОДА ЗАГРУЗЧИКА ===
+      
+        // === КОД КУРСОРА & ПРОЖЕКТОРА ===
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        const spotlight = document.querySelector('.spotlight');
 
-      // Анимация карточек
-      const portfolioItems = document.querySelectorAll('.portfolio-item');
-      if (portfolioItems.length > 0) {
-        const cardObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('show');
-            }
+        window.addEventListener('mousemove', (e) => {
+          const { clientX: posX, clientY: posY } = e;
+
+          if (cursorDot) cursorDot.style.top = `${posY}px`;
+          if (cursorDot) cursorDot.style.left = `${posX}px`;
+          if (cursorDot) cursorDot.style.opacity = '1';
+
+          if (cursorOutline) cursorOutline.style.top = `${posY}px`;
+          if (cursorOutline) cursorOutline.style.left = `${posX}px`;
+          if (cursorOutline) cursorOutline.style.opacity = '1';
+
+          if (spotlight) spotlight.style.top = `${posY}px`;
+          if (spotlight) spotlight.style.left = `${posX}px`;
+        });
+
+        // 'cursor-hover' class
+        document.querySelectorAll(
+          'a, button, .menu-section, .filter-btn, .scroll-top, .portfolio-item'
+        ).forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            document.body.classList.add('cursor-hover');
           });
-        }, {
-          threshold: 0.2
+          el.addEventListener('mouseleave', () => {
+            document.body.classList.remove('cursor-hover');
+          });
         });
 
-        portfolioItems.forEach(item => {
-          cardObserver.observe(item);
-        });
-      }
+        // === ИЗМЕНЕНО: КОД НАВИГАЦИИ (УДАЛЕНО УПОМИНАНИЕ #conteneur-menu) ===
+        window.addEventListener('scroll', function () {
+          const mobileNav = document.querySelector('.mobile-header');
+          const scrolled = window.scrollY > 10;
 
-      // Фильтры
-      const filterButtons = document.querySelectorAll('.filter-btn');
-
-      filterButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          const filter = button.getAttribute('data-filter');
-          const items = document.querySelectorAll('.portfolio-item');
-
-          items.forEach(function (item) {
-            if (filter === 'all' || item.getAttribute('data-category') === filter) {
-              item.classList.remove('hide');
+          if (mobileNav) {
+            if (scrolled) {
+              mobileNav.classList.add('scrolled');
             } else {
-              item.classList.add('hide');
+              mobileNav.classList.remove('scrolled');
             }
-          });
+          }
 
-          filterButtons.forEach(function (btn) {
-            btn.classList.remove('active');
-          });
-          button.classList.add('active');
+          const homeContent = document.querySelector('.home');
+          if (homeContent) {
+            let scrollPercent = window.scrollY / (window.innerHeight * 0.5);
+            let opacity = 1 - Math.min(scrollPercent, 1);
+            let transform = Math.min(scrollPercent * 100, 100);
+
+            homeContent.style.opacity = opacity;
+            homeContent.style.transform = `translate3d(0, -${transform}px, 0)`;
+          }
         });
-      });
 
-      // Баннер Cookie
-      const cookieBanner = document.getElementById('cookie-banner');
-      const acceptBtn = cookieBanner ? cookieBanner.querySelector('.button-accept') : null;
-      const rejectBtn = cookieBanner ? cookieBanner.querySelector('.button-reject') : null;
+        // Кнопка "Наверх"
+        const scrollTopBtn = document.querySelector('.scroll-top');
 
-      if (cookieBanner) {
-        if (!localStorage.getItem('cookieChoice')) {
-          cookieBanner.style.display = 'flex';
-        } else {
-          cookieBanner.style.display = 'none';
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            if (scrollTopBtn) scrollTopBtn.classList.add('visible');
+          } else {
+            if (scrollTopBtn) scrollTopBtn.classList.remove('visible');
+          }
+        });
+
+        // Меню бургер
+        const mobileMenuBtn = document.querySelector('.mobile-header .mobile-menu-btn');
+        const fullscreenMenu = document.querySelector('.fullscreen-menu');
+        const mobileHeader = document.querySelector('.mobile-header');
+        const menuSections = document.querySelectorAll('.menu-section');
+
+        mobileMenuBtn.addEventListener('click', function () {
+          this.classList.toggle('active');
+          fullscreenMenu.classList.toggle('active');
+          mobileHeader.classList.toggle('menu-open');
+
+          const isActive = fullscreenMenu.classList.contains('active');
+
+          // Управляем ТОЛЬКО 'overflow-y'
+          if (isActive) {
+            document.body.style.overflowY = 'hidden';
+            // Сбрасываем прокрутку меню в начало
+            fullscreenMenu.scrollTop = 0;
+          } else {
+            document.body.style.overflowY = 'auto';
+          }
+        });
+
+        // Закрытие меню
+        menuSections.forEach(section => {
+          section.addEventListener('click', function () {
+            const target = this.getAttribute('data-target');
+            if (!target) return; // Для секции языка
+
+            const targetElement = document.querySelector(target);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
+
+            if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+            if (fullscreenMenu) fullscreenMenu.classList.remove('active');
+            if (mobileHeader) mobileHeader.classList.remove('menu-open');
+            document.body.style.overflow = '';
+          });
+        });
+
+        // Анимация появления секций
+        const fadeIns = document.querySelectorAll('.fade-in');
+        if (fadeIns.length > 0) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+              }
+            });
+          }, {
+            threshold: 0.1
+          });
+
+          fadeIns.forEach(section => {
+            observer.observe(section);
+          });
         }
-      }
 
-      function acceptCookies() {
-        localStorage.setItem('cookieChoice', 'accepted');
-        if (cookieBanner) cookieBanner.style.display = 'none';
-      }
+        // Анимация карточек
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        if (portfolioItems.length > 0) {
+          const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+              }
+            });
+          }, {
+            threshold: 0.2
+          });
 
-      function rejectCookies() {
-        sessionStorage.setItem('cookieRejected', 'true');
-        if (cookieBanner) cookieBanner.style.display = 'none';
-      }
+          portfolioItems.forEach(item => {
+            cardObserver.observe(item);
+          });
+        }
 
-      if (acceptBtn) {
-        acceptBtn.addEventListener('click', acceptCookies);
-      }
+        // Фильтры
+        const filterButtons = document.querySelectorAll('.filter-btn');
 
-      if (rejectBtn) {
-        rejectBtn.addEventListener('click', rejectCookies);
-      }
-    });
+        filterButtons.forEach(function (button) {
+          button.addEventListener('click', function () {
+            const filter = button.getAttribute('data-filter');
+            const items = document.querySelectorAll('.portfolio-item');
 
-    // Клик по лого
-    document.querySelectorAll('.mobile-logo, .mobile-logo img').forEach(logo => {
-      logo.addEventListener('click', function (e) {
-        e.preventDefault();
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
+            items.forEach(function (item) {
+              if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.classList.remove('hide');
+              } else {
+                item.classList.add('hide');
+              }
+            });
+
+            filterButtons.forEach(function (btn) {
+              btn.classList.remove('active');
+            });
+            button.classList.add('active');
+          });
+        });
+
+        // Баннер Cookie
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = cookieBanner ? cookieBanner.querySelector('.button-accept') : null;
+        const rejectBtn = cookieBanner ? cookieBanner.querySelector('.button-reject') : null;
+
+        if (cookieBanner) {
+          if (!localStorage.getItem('cookieChoice')) {
+            cookieBanner.style.display = 'flex';
+          } else {
+            cookieBanner.style.display = 'none';
+          }
+        }
+
+        function acceptCookies() {
+          localStorage.setItem('cookieChoice', 'accepted');
+          if (cookieBanner) cookieBanner.style.display = 'none';
+        }
+
+        function rejectCookies() {
+          sessionStorage.setItem('cookieRejected', 'true');
+          if (cookieBanner) cookieBanner.style.display = 'none';
+        }
+
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', acceptCookies);
+        }
+
+        if (rejectBtn) {
+          rejectBtn.addEventListener('click', rejectCookies);
+        }
+      });
+
+      // Клик по лого
+      document.querySelectorAll('.mobile-logo, .mobile-logo img').forEach(logo => {
+        logo.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
         });
       });
-    });
 
-    // Клик "Наверх"
-    const scrollTopButton = document.querySelector('.scroll-top');
-    if (scrollTopButton) {
-      scrollTopButton.addEventListener('click', function (e) {
-        e.preventDefault();
+      // Клик "Наверх"
+      const scrollTopButton = document.querySelector('.scroll-top');
+      if (scrollTopButton) {
+        scrollTopButton.addEventListener('click', function (e) {
+          e.preventDefault();
 
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
         });
-      });
-    }
+      }
   </script>
   <div id="cookie-banner">
     <p>Ce site utilise des cookies pour améliorer votre expérience. En continuant à naviguer, vous acceptez notre

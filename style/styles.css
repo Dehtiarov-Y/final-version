@@ -1800,3 +1800,56 @@ body:hover .spotlight {
     display: none;
   }
 }
+
+/* === ЭКРАН ЗАГРУЗКИ (LOADER) === */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000; /* Черный фон, как у сайта */
+  z-index: 99999; /* Поверх всего, даже курсора */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader-logo {
+  width: 120px; /* Размер логотипа */
+  height: auto;
+  animation: logoPulse 2s infinite ease-in-out;
+}
+
+/* Анимация "дыхания" логотипа */
+@keyframes logoPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1); /* Легкое увеличение */
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Свечение */
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* Класс для скрытия загрузчика */
+.loader-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none;
+}
