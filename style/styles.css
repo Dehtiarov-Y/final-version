@@ -1735,6 +1735,7 @@ body:hover .spotlight {
 
 /* === Адаптация для второстепенных страниц === */
 @media (max-width: 879px) {
+  
   .floating-card {
     width: 95%;
   }
