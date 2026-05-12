@@ -21,16 +21,12 @@ body {
   cursor: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* === ФОН ДЛЯ ПРОКРУТКИ === */
   background-color: #000;
   background-image: url('../img/image.png');
-  /* 1. ЭТОТ ФОН БУДЕТ ВИДЕН ПРИ ПРОКРУТКЕ */
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* Приклеиваем его */
 }
 
 * {
@@ -911,36 +907,66 @@ footer p {
   font-weight: 500;
 }
 
-/* === ИЗМЕНЕНО: Mobile Menu (теперь для всех) === */
+/* === АНИМАЦИЯ ПОЯВЛЕНИЯ ХЕАДЕРА === */
+@keyframes slideDownHeader {
+  0% {
+    transform: translate(-50%, -150%); /* Начинается выше экрана */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0); /* Встает на свое место */
+    opacity: 1;
+  }
+}
+
+/* === ИЗМЕНЕНО: Mobile Menu (Плавающий Остров - Компактный) === */
 .mobile-header {
   display: flex;
-  /* Активировано для всех экранов */
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: transparent;
-  padding: 12px 20px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* --- УМЕНЬШЕННАЯ ШИРИНА --- */
+  width: 80%; /* Было 90%, теперь 80% — он станет уже */
+  max-width: 900px; /* Ограничили максимальную ширину для больших мониторов */
+  /* -------------------------- */
+  
+  box-sizing: border-box;
+  background: rgba(20, 20, 20, 0.4); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  padding: 10px 24px;
   z-index: 1001;
   align-items: center;
   justify-content: space-between;
-  box-shadow: none;
-  border-bottom: 1px solid transparent;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  
+  border-radius: 50px; 
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  
+  animation: slideDownHeader 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease, width 0.3s ease;
 }
 
+/* При скролле можно оставить ту же ширину или сделать еще чуть-чуть уже */
 .mobile-header.scrolled {
-  background-color: rgba(10, 10, 10, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 75%; /* Еще чуть компактнее при скролле (по желанию) */
+  background-color: rgba(10, 10, 10, 0.85);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 8px 24px;
 }
 
+/* Состояние при открытом бургер-меню */
 .mobile-header.menu-open {
-  background: #000 !important;
+  background-color: #000 !important;
+  border-color: #333;
   backdrop-filter: none;
-  border-bottom: 1px solid #333;
 }
+
+/* Дальше идут твои стили для .mobile-logo, .menu-right-group и т.д. (их менять не нужно) */
 
 .mobile-logo {
   width: 30px;
