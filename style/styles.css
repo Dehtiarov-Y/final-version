@@ -1064,18 +1064,12 @@ footer p {
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  /* ИСПРАВЛЕНИЕ 1: Меняем center на flex-start, чтобы контент начинался сверху и не обрезался */
   justify-content: flex-start;
   align-items: center;
-
-  /* Новая анимация: fade-in */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
-
-  /* ИСПРАВЛЕНИЕ 2: auto скрывает полосу прокрутки, когда она не нужна */
   overflow-y: auto; 
-  /* ИСПРАВЛЕНИЕ 3: Делаем большой отступ сверху (100px), чтобы шапка не перекрывала меню, и уменьшаем боковые отступы (20px) для телефонов */
   padding: 100px 20px 40px; 
   box-sizing: border-box;
 }
@@ -1086,28 +1080,22 @@ footer p {
 }
 
 .menu-container {
-  width: 100%; /* ИСПРАВЛЕНИЕ 4: Занимаем всю доступную ширину с учетом padding родителя */
+  width: 100%; 
   max-width: 600px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 15px;
   padding: 20px 0;
   text-align: center;
-  /* ИСПРАВЛЕНИЕ 5: margin: auto возвращает вертикальное центрирование на больших экранах, но не ломает скролл на мобильных */
   margin: auto; 
 }
 
 .menu-section {
   background: transparent;
-  /* Убран фон */
   border-left: none;
-  /* Убрана граница */
   padding: 10px 0;
-  /* Уменьшен padding */
   transition: all 0.3s ease;
   cursor: pointer;
-
-  /* Анимация для staggered fade-in */
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
