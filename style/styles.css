@@ -1886,24 +1886,40 @@ body:hover .spotlight {
   pointer-events: none;
 }
 
-.portfolio-item .portfolio-image video {
+/* === АДАПТИВНЫЙ КОНТЕЙНЕР ДЛЯ YOUTUBE / VIMEO === */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* Жестко задает пропорцию 16:9 для видео */
+  height: 0;
+  overflow: hidden;
   width: 100%;
-  height: auto;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   transition: transform 0.4s ease;
-  transform: rotate(-2deg);
-  outline: none;
+  transform: rotate(-2deg); /* Тот самый наклон */
+  /* Исправляет баг в Safari, когда видео вылезает за скругленные углы */
+  -webkit-mask-image: -webkit-radial-gradient(white, black); 
 }
 
-.portfolio-item:hover .portfolio-image video {
+/* Сам плеер внутри контейнера */
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Эффекты наведения (выравнивание и увеличение) */
+.portfolio-item:hover .video-wrapper {
   transform: rotate(0deg) scale(1.05);
 }
 
-.portfolio-item.layout-image-left .portfolio-image video {
+.portfolio-item.layout-image-left .video-wrapper {
   transform: rotate(2deg);
 }
 
-.portfolio-item.layout-image-left:hover .portfolio-image video {
+.portfolio-item.layout-image-left:hover .video-wrapper {
   transform: rotate(0deg) scale(1.05);
 }
