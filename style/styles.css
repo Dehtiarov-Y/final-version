@@ -919,54 +919,43 @@ footer p {
   }
 }
 
-/* === ИЗМЕНЕНО: Mobile Menu (Плавающий Остров - Компактный) === */
+/*  Mobile Menu  */
 .mobile-header {
   display: flex;
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  
-  /* --- УМЕНЬШЕННАЯ ШИРИНА --- */
-  width: 80%; /* Было 90%, теперь 80% — он станет уже */
-  max-width: 900px; /* Ограничили максимальную ширину для больших мониторов */
-  /* -------------------------- */
-  
+  width: 80%; 
+  max-width: 900px; 
   box-sizing: border-box;
   background: rgba(20, 20, 20, 0.4); 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  
   padding: 10px 24px;
   z-index: 1001;
   align-items: center;
   justify-content: space-between;
-  
   border-radius: 50px; 
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  
   animation: slideDownHeader 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease, width 0.3s ease;
 }
 
-/* При скролле можно оставить ту же ширину или сделать еще чуть-чуть уже */
 .mobile-header.scrolled {
-  width: 75%; /* Еще чуть компактнее при скролле (по желанию) */
+  width: 75%; 
   background-color: rgba(10, 10, 10, 0.85);
   border-color: rgba(255, 255, 255, 0.15);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   padding: 8px 24px;
 }
 
-/* Состояние при открытом бургер-меню */
 .mobile-header.menu-open {
   background-color: #000 !important;
   border-color: #333;
   backdrop-filter: none;
 }
-
-/* Дальше идут твои стили для .mobile-logo, .menu-right-group и т.д. (их менять не нужно) */
 
 .mobile-logo {
   width: 30px;
@@ -993,7 +982,6 @@ footer p {
   align-items: center;
 }
 
-/* === НОВЫЙ БЛОК: ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА В ШАПКЕ === */
 .header-language-selector {
   margin-right: 20px;
   display: flex;
