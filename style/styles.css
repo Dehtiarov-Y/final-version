@@ -919,20 +919,26 @@ footer p {
   }
 }
 
-/*  Mobile Menu  */
+/* === ИЗМЕНЕНО: ОПТИМИЗИРОВАННЫЙ Mobile Menu === */
 .mobile-header {
   display: flex;
   position: fixed;
   top: 20px;
   left: 50%;
-  transform: translateX(-50%);
-  width: 80%; 
+  
+  /* Подсказка браузеру заранее подготовить видеокарту для этих анимаций */
+  will-change: transform, background-color; 
+  
+  /* Используем scale(1) по умолчанию */
+  transform: translateX(-50%) scale(1);
+  transform-origin: top center; /* Точка отсчета для уменьшения - верхний центр */
+  width: 85%; /* Фиксируем ширину, больше ее не анимируем */
   max-width: 900px; 
   box-sizing: border-box;
   background: rgba(20, 20, 20, 0.4); 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 10px 24px;
+  padding: 10px 24px; /* Фиксируем padding */
   z-index: 1001;
   align-items: center;
   justify-content: space-between;
@@ -940,21 +946,21 @@ footer p {
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   animation: slideDownHeader 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease, width 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .mobile-header.scrolled {
-  width: 75%; 
+  transform: translateX(-50%) scale(0.96); 
   background-color: rgba(10, 10, 10, 0.85);
   border-color: rgba(255, 255, 255, 0.15);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  padding: 8px 24px;
 }
 
 .mobile-header.menu-open {
   background-color: #000 !important;
   border-color: #333;
   backdrop-filter: none;
+  transform: translateX(-50%) scale(1); /* Возвращаем нормальный размер при открытии меню */
 }
 
 .mobile-logo {
